@@ -39,29 +39,62 @@ export default function ProcessClient() {
                 </div>
             </section>
 
-            {/* 6-phase grid */}
-            <section className="py-24 px-6 lg:px-20 border-t border-white/5 bg-neutral-900/30">
-                <div className="max-w-7xl mx-auto">
-                    <div className="mb-16">
-                        <h2 className="text-4xl lg:text-5xl font-bold tracking-tighter mb-4">The 6-Phase <span className="italic text-[#bff549]">Roadmap</span></h2>
-                        <div className="w-20 h-1 bg-[#bef547] mb-6" />
-                        <p className="text-slate-500 max-w-xl">Our structured approach to high-performance delivery, optimized through years of enterprise execution.</p>
+            {/* 6-phase Roadmap - Redesigned as a Journey */}
+            <section className="py-32 px-6 lg:px-20 border-t border-white/5 bg-black relative overflow-hidden">
+                {/* Background path line */}
+                <div className="absolute left-1/2 top-40 bottom-40 w-px bg-gradient-to-b from-[#bef547]/0 via-[#bef547]/20 to-[#bef547]/0 hidden lg:block" />
+
+                <div className="max-w-7xl mx-auto relative z-10">
+                    <div className="text-center mb-24">
+                        <div className="inline-block px-4 py-1 border border-[#bef547]/30 text-[#bef547] text-[10px] font-black uppercase tracking-[0.3em] mb-6">
+                            The Delivery Journey
+                        </div>
+                        <h2 className="text-5xl lg:text-7xl font-bold tracking-tighter mb-6 uppercase">
+                            Our 6-Phase <span className="italic text-[#bff549]">Roadmap</span>
+                        </h2>
+                        <p className="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">
+                            A high-precision engineering path from initial intelligence to global scale, optimized for maximum velocity and zero-waste execution.
+                        </p>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {phases.map((p) => (
-                            <div
-                                key={p.num}
-                                className={`c2-grid-item ${p.highlight ? "border-[#bef547]/20 bg-[#bef547]/5" : ""}`}
-                            >
-                                <div className="flex justify-between items-start mb-12">
-                                    <span className="text-[#bef547] font-bold text-sm tracking-[0.3em]">{p.num}</span>
-                                    <span className={`material-symbols-outlined ${p.highlight ? "text-[#bef547]" : "text-[#bef547]/30"}`}>{p.icon}</span>
+
+                    <div className="space-y-12 lg:space-y-0 relative">
+                        {phases.map((p, i) => (
+                            <div key={p.num} className={`relative flex flex-col lg:flex-row items-center gap-8 lg:gap-20 ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''} mb-20 lg:mb-32`}>
+                                {/* Node Dot */}
+                                <div className="absolute left-1/2 top-0 -translate-x-1/2 w-4 h-4 bg-black border-2 border-[#bef547] rounded-full z-20 hidden lg:block shadow-[0_0_15px_rgba(190,245,71,0.5)]" />
+
+                                {/* Content Card */}
+                                <div className="w-full lg:w-[45%]">
+                                    <div className={`p-8 lg:p-12 border border-white/5 bg-neutral-900/50 backdrop-blur-sm hover:border-[#bef547]/30 transition-all duration-500 group relative ${p.highlight ? "ring-1 ring-[#bef547]/20 shadow-[0_0_30px_rgba(190,245,71,0.05)]" : ""}`}>
+                                        <div className="flex justify-between items-start mb-8">
+                                            <span className="text-[#bef547] font-black text-xs tracking-[0.4em] italic opacity-50">{p.num}</span>
+                                            <span className={`material-symbols-outlined text-3xl transition-transform group-hover:scale-110 duration-500 ${p.highlight ? "text-[#bef547]" : "text-[#bef547]/30"}`}>{p.icon}</span>
+                                        </div>
+                                        <h3 className="text-3xl font-bold mb-4 tracking-tight uppercase">{p.title}</h3>
+                                        <p className="text-slate-400 text-base leading-relaxed mb-8">{p.desc}</p>
+
+                                        <div className={`pt-8 border-t ${p.highlight ? "border-[#bef547]/20" : "border-white/10"}`}>
+                                            <div className="flex items-center gap-3 mb-4">
+                                                <div className="h-px w-8 bg-[#bef547]/40" />
+                                                <span className="text-[10px] uppercase tracking-[0.2em] text-[#bef547] font-black">AI Augmentation</span>
+                                            </div>
+                                            <p className="text-sm text-slate-300 leading-relaxed font-medium italic">&quot;{p.ai}&quot;</p>
+                                        </div>
+
+                                        {/* Decorative Corner */}
+                                        <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-[#bef547]/0 group-hover:border-[#bef547]/40 transition-all duration-500" />
+                                        <div className="absolute bottom-0 left-0 w-8 h-8 border-b border-l border-[#bef547]/0 group-hover:border-[#bef547]/40 transition-all duration-500" />
+                                    </div>
                                 </div>
-                                <h3 className="text-2xl font-bold mb-4">{p.title}</h3>
-                                <p className="text-slate-400 text-sm leading-relaxed mb-8">{p.desc}</p>
-                                <div className={`pt-6 border-t ${p.highlight ? "border-[#bef547]/20" : "border-white/10"}`}>
-                                    <span className="text-[10px] uppercase tracking-widest text-[#bef547]/60 font-bold block mb-2">AI Leverage</span>
-                                    <p className="text-xs text-slate-300">{p.ai}</p>
+
+                                {/* Connector for Mobile (Empty space for desktop layout) */}
+                                <div className="hidden lg:block lg:w-[10%] shrink-0" />
+
+                                {/* Visual Cue / Detail */}
+                                <div className="w-full lg:w-[45%] hidden lg:flex items-center justify-center">
+                                    <div className="text-[10rem] font-black text-white/[0.02] select-none uppercase tracking-tighter">
+                                        {p.title.split(' ')[0]}
+                                    </div>
                                 </div>
                             </div>
                         ))}

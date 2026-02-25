@@ -1,38 +1,23 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
-
-const caseStudies = [
-    {
-        id: "nexus",
-        title: "NEXUS ANALYTICS",
-        metric: "+147%",
-        metricLabel: "Revenue Growth",
-        metricPos: "top-6 right-6",
-        quote: "2Guys Digital transformed our complex data into a seamless user experience. The AI-driven predictive models they implemented have completely shifted how our enterprise clients interact with their data.",
-        author: "John D. Moore",
-        role: "CTO, Nexus SaaS",
-        initials: "JD",
-        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBdEJskWovU84Xq0CrLF77kQdM7kMFZ0tE9uxN10CMofwdUIEY8yDJDwWpsl0yV9ysJxmpte2Pmak6Pt6kzl93LruELTtHG8wgS76SamIHhwpadr-g-hVUxADCknYokFOsVvIEhqSSg6nxwtXQv8X8lC4VilFysqCuPR_KwUPHYQosMZ0ZqX-_TycCGzxsqPXRgkiKyg-n7l5mfzKny7y_efTAGzkM9PdcFIo7ENROOPRBcB310wAsnOQdETPhoHgPZBhzr-W3hpEc",
-        reverse: false,
-    },
-    {
-        id: "vault",
-        title: "VAULT MOBILE",
-        metric: "+120%",
-        metricLabel: "User Retention",
-        metricPos: "top-6 left-6",
-        quote: "A high-stakes project delivered with surgical precision. The security features and intuitive flow helped us secure our Series B funding within months of launch.",
-        author: "Sarah Chen",
-        role: "Founder, Vault Finance",
-        initials: "SC",
-        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDFu3RoG3pr3bl8IZfBZWqCdD5vxJTIo6UgIE4GKlkmu9fkrcSciWrErbUhcajvWkSGm0hvpONf-Uht4LItYwoJTz4sJAJiZji0Xk6T4G-WpCSsUzrWqYXW2Ld4gtIfQ4SfeQs-mZltoQPNrA9l4rhWn0lytzHmIXb7JG64sbIUE80CBJwaqKMsuAwnvv6Y74ioBXMkVI7gZkahg0IzC9FnrwfNiKVGZg2jW0E7MfpghBjzc9Zpd2L-qJxMwFnbFw92mUagnsaDwcg",
-        reverse: true,
-    },
-];
+import { caseStudies } from "@/lib/constants";
 
 export default function PortfolioPage() {
+    const [activeIndustry, setActiveIndustry] = useState("All");
+    const [activeService, setActiveService] = useState("All");
+
+    const industries = ["All", ...Array.from(new Set(caseStudies.map((cs) => cs.industry)))];
+    const services = ["All", ...Array.from(new Set(caseStudies.map((cs) => cs.service)))];
+
+    const filteredCaseStudies = caseStudies.filter((cs) => {
+        const industryMatch = activeIndustry === "All" || cs.industry === activeIndustry;
+        const serviceMatch = activeService === "All" || cs.service === activeService;
+        return industryMatch && serviceMatch;
+    });
+
     return (
         <div className="pt-[73px]">
             {/* Hero */}
@@ -48,17 +33,32 @@ export default function PortfolioPage() {
                 <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                     <div className="flex flex-wrap gap-3 items-center">
                         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#bff549]">Industry:</span>
-                        <button className="px-4 py-1.5 bg-[#bff549] text-black text-xs font-bold uppercase tracking-wider -skew-x-12">
-                            <span className="inline-block skew-x-12">All</span>
-                        </button>
-                        {["E-commerce", "Fintech", "SaaS"].map((f) => (
-                            <button key={f} className="px-4 py-1.5 border border-white/10 text-xs font-bold uppercase tracking-wider hover:border-[#bff549] transition-colors">{f}</button>
+                        {industries.map((f) => (
+                            <button
+                                key={f}
+                                onClick={() => setActiveIndustry(f)}
+                                className={`px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-all ${activeIndustry === f
+                                        ? "bg-[#bff549] text-black -skew-x-12"
+                                        : "border border-white/10 hover:border-[#bff549]"
+                                    }`}
+                            >
+                                <span className={activeIndustry === f ? "inline-block skew-x-12" : ""}>{f}</span>
+                            </button>
                         ))}
                     </div>
                     <div className="flex flex-wrap gap-3 items-center">
                         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#bff549]">Service:</span>
-                        {["Development", "AI Integration", "UI/UX Design"].map((f) => (
-                            <button key={f} className="px-4 py-1.5 border border-white/10 text-xs font-bold uppercase tracking-wider hover:border-[#bff549] transition-colors">{f}</button>
+                        {services.map((f) => (
+                            <button
+                                key={f}
+                                onClick={() => setActiveService(f)}
+                                className={`px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-all ${activeService === f
+                                        ? "bg-[#bff549] text-black -skew-x-12"
+                                        : "border border-white/10 hover:border-[#bff549]"
+                                    }`}
+                            >
+                                <span className={activeService === f ? "inline-block skew-x-12" : ""}>{f}</span>
+                            </button>
                         ))}
                     </div>
                 </div>
@@ -83,47 +83,62 @@ export default function PortfolioPage() {
             </section>
 
             {/* Case studies */}
-            <section className="py-20 px-6 md:px-12 max-w-7xl mx-auto space-y-40">
-                {caseStudies.map((cs) => (
-                    <div key={cs.id} className={`flex flex-col ${cs.reverse ? "lg:flex-row-reverse" : "lg:flex-row"} gap-16 items-center`}>
-                        <div className="w-full lg:w-1/2 relative">
-                            <div className="aspect-[4/3] overflow-hidden border border-white/10 group">
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    alt={cs.title}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                    src={cs.img}
-                                />
-                                <div className={`absolute ${cs.metricPos} bg-[#bff549] text-black px-6 py-3`}>
-                                    <span className="block text-3xl font-black">{cs.metric}</span>
-                                    <span className="text-[10px] font-bold uppercase tracking-widest">{cs.metricLabel}</span>
+            <section className="py-20 px-6 md:px-12 max-w-7xl mx-auto space-y-40 min-h-[60vh]">
+                {filteredCaseStudies.length > 0 ? (
+                    filteredCaseStudies.map((cs) => (
+                        <div key={cs.id} className={`flex flex-col ${cs.reverse ? "lg:flex-row-reverse" : "lg:flex-row"} gap-16 items-center`}>
+                            <div className="w-full lg:w-1/2 relative">
+                                <div className="aspect-[4/3] overflow-hidden border border-white/10 group">
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img
+                                        alt={cs.title}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                        src={cs.img}
+                                    />
+                                    <div className={`absolute ${cs.metricPos} bg-[#bff549] text-black px-6 py-3 shadow-xl`}>
+                                        <span className="block text-3xl font-black">{cs.metric}</span>
+                                        <span className="text-[10px] font-bold uppercase tracking-widest">{cs.metricLabel}</span>
+                                    </div>
                                 </div>
+                            </div>
+                            <div className="w-full lg:w-1/2">
+                                <div className="mb-4 flex gap-1">
+                                    {[...Array(5)].map((_, i) => (
+                                        <span key={i} className="material-symbols-outlined text-[#bff549] text-sm fill-icon">star</span>
+                                    ))}
+                                </div>
+                                <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tighter">{cs.title}</h2>
+                                <p className="text-slate-400 text-lg mb-8 italic leading-relaxed">&quot;{cs.quote}&quot;</p>
+                                <div className="flex items-center gap-4 mb-10">
+                                    <div className="size-12 bg-neutral-800 flex items-center justify-center font-bold text-[#bff549]">
+                                        {cs.initials}
+                                    </div>
+                                    <div>
+                                        <p className="font-bold uppercase tracking-wider text-sm">{cs.author}</p>
+                                        <p className="text-xs text-slate-500 uppercase tracking-widest">{cs.role}</p>
+                                    </div>
+                                </div>
+                                <Link
+                                    href={`/portfolio/${cs.slug}`}
+                                    className="group flex items-center gap-3 text-xs font-bold uppercase tracking-[0.3em] hover:text-[#bff549] transition-colors mt-8 -skew-x-12 inline-flex"
+                                >
+                                    <span className="inline-block skew-x-12">View Case Study</span>
+                                    <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform inline-block skew-x-12">arrow_forward</span>
+                                </Link>
                             </div>
                         </div>
-                        <div className="w-full lg:w-1/2">
-                            <div className="mb-4 flex gap-1">
-                                {[...Array(5)].map((_, i) => (
-                                    <span key={i} className="material-symbols-outlined text-[#bff549] text-sm fill-icon">star</span>
-                                ))}
-                            </div>
-                            <h2 className="text-4xl md:text-5xl font-bold mb-6">{cs.title}</h2>
-                            <p className="text-slate-400 text-lg mb-8 italic">&quot;{cs.quote}&quot;</p>
-                            <div className="flex items-center gap-4 mb-10">
-                                <div className="size-12 bg-neutral-800 flex items-center justify-center font-bold">
-                                    {cs.initials}
-                                </div>
-                                <div>
-                                    <p className="font-bold uppercase tracking-wider text-sm">{cs.author}</p>
-                                    <p className="text-xs text-slate-500 uppercase tracking-widest">{cs.role}</p>
-                                </div>
-                            </div>
-                            <button className="group flex items-center gap-3 text-xs font-bold uppercase tracking-[0.3em] hover:text-[#bff549] transition-colors mt-8 -skew-x-12">
-                                <span className="inline-block skew-x-12">View Case Study</span>
-                                <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform inline-block skew-x-12">arrow_forward</span>
-                            </button>
-                        </div>
+                    ))
+                ) : (
+                    <div className="py-40 text-center">
+                        <h3 className="text-2xl font-bold mb-4 opacity-50 uppercase tracking-widest">No matching case studies found</h3>
+                        <button
+                            onClick={() => { setActiveIndustry("All"); setActiveService("All"); }}
+                            className="text-[#bff549] font-bold uppercase tracking-widest text-xs hover:underline"
+                        >
+                            Reset Filters
+                        </button>
                     </div>
-                ))}
+                )}
             </section>
 
             {/* CTA */}
