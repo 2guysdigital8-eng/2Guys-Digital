@@ -41,7 +41,7 @@ export default function Navbar() {
     return (
         <>
             <header className="fixed top-0 z-50 w-full bg-black/90 backdrop-blur-md border-b border-white/5">
-                <div className="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between relative">
+                <div className="max-w-7xl mx-auto px-6 lg:px-10 py-6 flex items-center justify-between relative">
                     <Logo />
 
                     {/* Centered Badge */}
@@ -76,8 +76,8 @@ export default function Navbar() {
 
             {/* Mobile/Hamburger menu */}
             {open && (
-                <div className="fixed inset-0 z-40 bg-black px-6 pt-[100px] pb-12 flex flex-col items-center">
-                    <nav className="flex flex-col gap-8 w-full max-w-md text-center">
+                <div className="fixed inset-0 z-40 bg-black px-6 pt-[120px] pb-12 flex flex-col items-center">
+                    <nav className="flex flex-col gap-8 w-full items-center text-center">
                         {navLinks.map((link) => {
                             const active =
                                 link.href === "/"

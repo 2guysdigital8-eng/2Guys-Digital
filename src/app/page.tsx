@@ -46,7 +46,7 @@ const clients = [
 
 export default function HomePage() {
   return (
-    <div className="pt-[73px]">
+    <div className="pt-[90px]">
       {/* Hero & Featured Work */}
       <section className="pt-20 pb-0 text-center border-b border-white/5 bg-black">
         <div className="max-w-4xl mx-auto px-6 mb-16">
@@ -117,12 +117,12 @@ export default function HomePage() {
       <BentoStats />
 
       {/* Featured clients marquee strip */}
-      <section className="py-24 bg-black border-y border-white/5">
+      <section className="py-16 bg-black border-y border-white/5">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.2em] mb-16 text-white italic">
+          <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-widest mb-16 text-white italic">
             Featured <span className="text-[#bff549]">Clients</span>
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-y-16 gap-x-12 items-center opacity-30 grayscale contrast-125">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-y-6 gap-x-8 items-center opacity-30 grayscale contrast-125">
             {["BILLBOARD", "KYLIE", "FORD", "DHL", "NAPLES", "KERWELL", "NORANI", "ROUTE", "LUNAR", "BLUE STAR"].map((name) => (
               <span key={name} className="text-2xl font-black tracking-tighter">{name}</span>
             ))}
@@ -228,7 +228,7 @@ export default function HomePage() {
 
       {/* Contact form section */}
       <section className="pt-16 pb-32 bg-black px-6 lg:px-20">
-        <div className="max-w-4xl mx-auto bg-neutral-900 border border-white/10 p-12 lg:p-20 text-white">
+        <div className="max-w-6xl mx-auto bg-neutral-900 border border-white/10 p-12 lg:p-20 text-white">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-black tracking-tighter mb-4">Let&apos;s <span className="italic text-[#bff549]">Create Together</span></h2>
             <p className="text-slate-400 text-lg">Tell us what you&apos;re interested in and we&apos;ll get right back to you</p>

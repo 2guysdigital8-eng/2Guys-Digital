@@ -28,27 +28,27 @@ export default function ContactForm({ theme = "dark" }: ContactFormProps) {
                     className={
                         isLight
                             ? "w-full bg-slate-50 border border-slate-200 focus:border-[#bff549] focus:outline-none h-14 px-6 text-black transition-colors"
-                            : "w-full bg-transparent border-0 border-b border-white/20 py-4 focus:outline-none focus:border-[#bff549] transition-colors text-lg text-white/50 uppercase tracking-widest font-medium"
+                            : "w-full bg-transparent border-0 border-b border-white/20 py-4 focus:outline-none focus:border-[#bff549] transition-colors text-lg text-white uppercase tracking-widest font-medium"
                     }
                 >
-                    <option>{isLight ? "Select Project Type" : "PROJECT TYPE"}</option>
-                    <option>AI Automation</option>
-                    <option>Web Platform</option>
-                    <option>Mobile App</option>
-                    <option>SaaS Development</option>
+                    <option className="text-black">{isLight ? "Select Project Type" : "PROJECT TYPE"}</option>
+                    <option className="text-black">AI Automation</option>
+                    <option className="text-black">Web Platform</option>
+                    <option className="text-black">Mobile App</option>
+                    <option className="text-black">SaaS Development</option>
                 </select>
                 <select
                     className={
                         isLight
                             ? "w-full bg-slate-50 border border-slate-200 focus:border-[#bff549] focus:outline-none h-14 px-6 text-black transition-colors"
-                            : "w-full bg-transparent border-0 border-b border-white/20 py-4 focus:outline-none focus:border-[#bff549] transition-colors text-lg text-white/50 uppercase tracking-widest font-medium"
+                            : "w-full bg-transparent border-0 border-b border-white/20 py-4 focus:outline-none focus:border-[#bff549] transition-colors text-lg text-white uppercase tracking-widest font-medium"
                     }
                 >
-                    <option>{isLight ? "Select Budget" : "BUDGET RANGE"}</option>
-                    <option>$10k – $25k</option>
-                    <option>$25k – $50k</option>
-                    <option>$50k – $100k</option>
-                    <option>$100k+</option>
+                    <option className="text-black">{isLight ? "Select Budget" : "BUDGET RANGE"}</option>
+                    <option className="text-black">$10k – $25k</option>
+                    <option className="text-black">$25k – $50k</option>
+                    <option className="text-black">$50k – $100k</option>
+                    <option className="text-black">$100k+</option>
                 </select>
             </div>
             <textarea
