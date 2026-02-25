@@ -122,7 +122,7 @@ export default function HomePage() {
           <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-widest mb-16 text-white italic">
             Featured <span className="text-[#bff549]">Clients</span>
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-y-6 gap-x-8 items-center opacity-30 grayscale contrast-125">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-y-12 gap-x-2 items-center opacity-30 grayscale contrast-125">
             {["BILLBOARD", "KYLIE", "FORD", "DHL", "NAPLES", "KERWELL", "NORANI", "ROUTE", "LUNAR", "BLUE STAR"].map((name) => (
               <span key={name} className="text-2xl font-black tracking-tighter">{name}</span>
             ))}
