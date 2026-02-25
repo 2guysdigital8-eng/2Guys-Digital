@@ -13,9 +13,29 @@ export default function JobApplyForm({ jobTitle, onClose }: JobApplyFormProps) {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus('sending');
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setStatus('success');
+
+        try {
+            const formData = new FormData(e.target as HTMLFormElement);
+            formData.append("_captcha", "false");
+            formData.append("_subject", `New Job Application: ${jobTitle}`);
+
+            const response = await fetch("https://formsubmit.co/ajax/2guys.digital8@gmail.com", {
+                method: "POST",
+                body: formData
+            });
+
+            if (response.ok) {
+                setStatus('success');
+            } else {
+                console.error("Form submission failed");
+                setStatus('idle');
+                alert("Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            console.error(error);
+            setStatus('idle');
+            alert("Something went wrong. Please try again.");
+        }
     };
 
     if (status === 'success') {
@@ -25,7 +45,7 @@ export default function JobApplyForm({ jobTitle, onClose }: JobApplyFormProps) {
                     <span className="material-symbols-outlined text-[#bff549] text-3xl">check_circle</span>
                 </div>
                 <h3 className="text-2xl font-bold mb-2 uppercase">Application Received</h3>
-                <p className="text-slate-400 text-sm">We've received your application for the {jobTitle} position. Our team will review it and get back to you soon.</p>
+                <p className="text-slate-400 text-sm">We&apos;ve received your application for the {jobTitle} position. Our team will review it and get back to you soon.</p>
                 {onClose && (
                     <button
                         onClick={onClose}
@@ -46,6 +66,7 @@ export default function JobApplyForm({ jobTitle, onClose }: JobApplyFormProps) {
                     <input
                         required
                         type="text"
+                        name="fullName"
                         placeholder="John Doe"
                         className="w-full bg-[#efefef]/5 border-b border-white/10 p-4 outline-none focus:border-[#bff549] transition-colors text-white"
                     />
@@ -55,6 +76,7 @@ export default function JobApplyForm({ jobTitle, onClose }: JobApplyFormProps) {
                     <input
                         required
                         type="email"
+                        name="email"
                         placeholder="john@example.com"
                         className="w-full bg-[#efefef]/5 border-b border-white/10 p-4 outline-none focus:border-[#bff549] transition-colors text-white"
                     />
@@ -67,6 +89,7 @@ export default function JobApplyForm({ jobTitle, onClose }: JobApplyFormProps) {
                     <input
                         required
                         type="url"
+                        name="portfolio"
                         placeholder="https://..."
                         className="w-full bg-[#efefef]/5 border-b border-white/10 p-4 outline-none focus:border-[#bff549] transition-colors text-white"
                     />
@@ -76,6 +99,7 @@ export default function JobApplyForm({ jobTitle, onClose }: JobApplyFormProps) {
                     <input
                         required
                         type="url"
+                        name="resumeLink"
                         placeholder="https://..."
                         className="w-full bg-[#efefef]/5 border-b border-white/10 p-4 outline-none focus:border-[#bff549] transition-colors text-white"
                     />
@@ -87,6 +111,7 @@ export default function JobApplyForm({ jobTitle, onClose }: JobApplyFormProps) {
                 <textarea
                     required
                     rows={4}
+                    name="message"
                     placeholder="Tell us about your experience..."
                     className="w-full bg-[#efefef]/5 border-b border-white/10 p-4 outline-none focus:border-[#bff549] transition-colors text-white resize-none"
                 />

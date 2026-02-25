@@ -19,8 +19,29 @@ export default function CareersForm({
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus('sending');
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setStatus('success');
+
+        try {
+            const formData = new FormData(e.target as HTMLFormElement);
+            formData.append("_captcha", "false");
+            formData.append("_subject", "New General Application Submission");
+
+            const response = await fetch("https://formsubmit.co/ajax/2guys.digital8@gmail.com", {
+                method: "POST",
+                body: formData
+            });
+
+            if (response.ok) {
+                setStatus('success');
+            } else {
+                console.error("Form submission failed");
+                setStatus('idle');
+                alert("Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            console.error(error);
+            setStatus('idle');
+            alert("Something went wrong. Please try again.");
+        }
     };
 
     if (status === 'success') {
@@ -30,7 +51,7 @@ export default function CareersForm({
                     <span className="material-symbols-outlined text-[#bff549] text-3xl">check_circle</span>
                 </div>
                 <h3 className="text-2xl font-black uppercase tracking-tighter text-white">Application Received</h3>
-                <p className="text-slate-400 text-sm mt-4">We've received your application and will review it shortly. Keep an eye on your inbox.</p>
+                <p className="text-slate-400 text-sm mt-4">We&apos;ve received your application and will review it shortly. Keep an eye on your inbox.</p>
             </div>
         );
     }
@@ -53,12 +74,14 @@ export default function CareersForm({
                     <input
                         required
                         type="text"
+                        name="firstName"
                         placeholder="First Name"
                         className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#bff549] outline-none transition-colors"
                     />
                     <input
                         required
                         type="text"
+                        name="lastName"
                         placeholder="Last Name"
                         className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#bff549] outline-none transition-colors"
                     />
@@ -67,12 +90,14 @@ export default function CareersForm({
                     <input
                         required
                         type="tel"
+                        name="phone"
                         placeholder="Your Phone Number"
                         className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#bff549] outline-none transition-colors"
                     />
                     <input
                         required
                         type="email"
+                        name="email"
                         placeholder="Your Email Address"
                         className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#bff549] outline-none transition-colors"
                     />
@@ -81,6 +106,7 @@ export default function CareersForm({
                     <input
                         required
                         type="url"
+                        name="portfolio"
                         placeholder="Portfolio / GitHub Link"
                         className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#bff549] outline-none transition-colors"
                     />
@@ -89,6 +115,7 @@ export default function CareersForm({
                             required
                             type="file"
                             id="resume-upload"
+                            name="resume"
                             accept=".pdf,.doc,.docx"
                             onChange={(e) => setResumeName(e.target.files?.[0]?.name || '')}
                             className="hidden"
@@ -106,6 +133,7 @@ export default function CareersForm({
                 </div>
                 <textarea
                     required
+                    name="message"
                     placeholder="Tell us more about yourself and your career goals..."
                     rows={6}
                     className="w-full bg-white/5 border border-white/10 p-6 text-white focus:border-[#bff549] outline-none transition-colors resize-none"
