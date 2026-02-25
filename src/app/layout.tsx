@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s | 2Guys Digital",
   },
   description:
-    "2Guys Digital — Fully AI-driven digital agency of 30+ experts. Enterprise AI development, web systems, mobile platforms, and UI/UX.",
+    "2Guys Digital — Fully AI-driven digital agency of experts. Enterprise AI development, web systems, mobile platforms, and UI/UX.",
   keywords: ["AI development", "enterprise AI", "web agency", "mobile apps", "UI UX design"],
   openGraph: {
     type: "website",

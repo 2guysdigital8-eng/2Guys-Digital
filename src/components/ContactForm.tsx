@@ -79,7 +79,7 @@ export default function ContactForm({ theme = "dark" }: ContactFormProps) {
                 <div className="skew-x-12 flex items-center justify-center gap-4">
                     {isLight ? "Submit Message" : (
                         <>
-                            INITIATE DISCOVERY
+                            LET'S WORK TOGETHER
                             <span className="material-symbols-outlined">east</span>
                         </>
                     )}

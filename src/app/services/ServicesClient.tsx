@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
+import { useState, useRef, useEffect } from "react";
 
 const services = [
     { num: "01", icon: "language", title: "Web Systems", desc: "High-performance platforms optimized for hyper-conversion and global enterprise reach.", roi: "+40% Conversion" },
@@ -10,13 +11,41 @@ const services = [
     { num: "04", icon: "grid_view", title: "UI/UX Systems", desc: "Precision-engineered interfaces that define brand identity and drive behavior.", roi: "30% CLV Boost" },
 ];
 
-const techStats = [
-    { value: "150ms", label: "Edge Performance", icon: "bolt", desc: "Average edge response time across our global deployments." },
-    { value: "SOC 2", label: "Security First", icon: "security", desc: "Enterprise-grade security protocols baked into every line of code." },
-    { value: "100%", label: "AI Native", icon: "psychology", desc: "New builds feature native LLM integrations for autonomous workflows." },
-];
+const yearlyTechStats = {
+    "2025": [
+        { value: "150ms", label: "Edge Performance", icon: "bolt", desc: "Average edge response time across our global deployments." },
+        { value: "SOC 2", label: "Security First", icon: "security", desc: "Enterprise-grade security protocols baked into every line of code." },
+        { value: "100%", label: "AI Native", icon: "psychology", desc: "New builds feature native LLM integrations for autonomous workflows." },
+    ],
+    "2024": [
+        { value: "280ms", label: "Edge Performance", icon: "bolt", desc: "Optimized response times across regional edge nodes." },
+        { value: "ISO 27k", label: "Security First", icon: "security", desc: "Standardized security frameworks implemented for all production apps." },
+        { value: "65%", label: "AI Assisted", icon: "psychology", desc: "Integration of smart modules and predictive analytics into core flows." },
+    ],
+    "2023": [
+        { value: "450ms", label: "Cloud Performance", icon: "bolt", desc: "Original server-side rendering speeds on global cloud infrastructure." },
+        { value: "Tier 4", label: "Datacenter Security", icon: "security", desc: "Infrastructure-level security at the physical and network layers." },
+        { value: "20%", label: "ML Optimized", icon: "psychology", desc: "Early adoption of machine learning for basic data pattern recognition." },
+    ]
+};
 
 export default function ServicesClient() {
+    const [selectedYear, setSelectedYear] = useState("2025");
+    const [isYearMenuOpen, setIsYearMenuOpen] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setIsYearMenuOpen(false);
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    const currentStats = yearlyTechStats[selectedYear as keyof typeof yearlyTechStats];
+
     return (
         <div className="pt-[73px]">
             {/* Hero */}
@@ -82,20 +111,46 @@ export default function ServicesClient() {
                             <h2 className="text-4xl lg:text-6xl font-bold tracking-tighter mb-4">Technical <span className="italic text-[#bff549]">Prowess</span></h2>
                             <p className="text-slate-400 max-w-lg text-lg">Our stack is built for the demands of tomorrow&apos;s enterprise.</p>
                         </div>
-                        <div className="text-right">
-                            <span className="text-6xl font-black text-[#bff549]">2025</span>
-                            <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-slate-500">Current Standard</p>
+                        <div className="text-right relative" ref={dropdownRef}>
+                            <button
+                                onClick={() => setIsYearMenuOpen(!isYearMenuOpen)}
+                                className="text-6xl font-black text-[#bff549] hover:brightness-110 transition-all flex items-center gap-2 ml-auto group"
+                            >
+                                {selectedYear}
+                                <span className={`material-symbols-outlined text-4xl transition-transform duration-300 ${isYearMenuOpen ? "rotate-180" : ""}`}>
+                                    expand_more
+                                </span>
+                            </button>
+                            {isYearMenuOpen && (
+                                <div className="absolute top-full right-0 mt-2 bg-neutral-900 border border-white/10 py-2 w-40 z-50 shadow-2xl">
+                                    {Object.keys(yearlyTechStats).sort((a, b) => b.localeCompare(a)).map((year) => (
+                                        <button
+                                            key={year}
+                                            onClick={() => {
+                                                setSelectedYear(year);
+                                                setIsYearMenuOpen(false);
+                                            }}
+                                            className={`w-full text-right px-6 py-3 text-2xl font-black block transition-colors hover:bg-white/5 ${selectedYear === year ? "text-[#bff549]" : "text-white/40"}`}
+                                        >
+                                            {year}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                            <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-slate-500">Selection Menu</p>
                         </div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {techStats.map((t) => (
-                            <div key={t.value} className="bg-[#0a0a0a] p-10 border border-white/5 relative overflow-hidden group">
+                        {currentStats.map((t) => (
+                            <div key={t.label} className="bg-[#0a0a0a] p-10 border border-white/5 relative overflow-hidden group min-h-[220px] flex flex-col justify-between">
                                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-100 transition-opacity">
-                                    <span className="material-symbols-outlined text-6xl">{t.icon}</span>
+                                    <span className="material-symbols-outlined text-6xl text-[#bff549]">{t.icon}</span>
                                 </div>
-                                <h4 className="text-4xl font-bold mb-4">{t.value}</h4>
-                                <p className="text-slate-400 text-sm leading-relaxed mb-6">{t.desc}</p>
-                                <div className="text-[10px] uppercase font-bold text-[#bff549] tracking-widest">{t.label}</div>
+                                <div className="relative z-10">
+                                    <h4 className="text-4xl font-bold mb-4 group-hover:text-[#bff549] transition-colors">{t.value}</h4>
+                                    <p className="text-slate-400 text-sm leading-relaxed mb-6">{t.desc}</p>
+                                </div>
+                                <div className="text-[10px] uppercase font-bold text-[#bff549] tracking-widest relative z-10">{t.label}</div>
                             </div>
                         ))}
                     </div>

@@ -57,7 +57,7 @@ export default function Navbar() {
                             href="/contact"
                             className="hidden md:block bg-[#bff549] text-black px-6 py-2.5 text-xs font-bold uppercase tracking-widest hover:brightness-110 transition-all -skew-x-12"
                         >
-                            <span className="inline-block skew-x-12">Get Started</span>
+                            <span className="inline-block skew-x-12">Get Free Website</span>
                         </Link>
                         <button
                             onClick={() => setOpen(!open)}

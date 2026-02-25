@@ -3,11 +3,12 @@ import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 import DragCarousel from "@/components/DragCarousel";
 import ScrollingServices from "@/components/ScrollingServices";
+import BentoStats from "@/components/BentoStats";
 
 export const metadata: Metadata = {
   title: "2Guys Digital | Enterprise-Grade AI Development Agency",
   description:
-    "Fully AI-driven digital agency of 30+ experts. We've helped thousands of brands exceed their goals with enterprise AI development.",
+    "Fully AI-driven digital agency of experts. We've helped thousands of brands exceed their goals with enterprise AI development.",
 };
 
 const workItems = [
@@ -98,14 +99,14 @@ export default function HomePage() {
           {/* CTA */}
           <div className="flex flex-col sm:flex-row gap-6 mt-4 w-full lg:w-auto justify-center">
             <Link href="/contact" className="bg-[#bff549] text-black px-8 py-4 text-sm font-bold uppercase tracking-widest text-center hover:scale-105 transition-transform -skew-x-12">
-              <span className="inline-block skew-x-12">Get Started</span>
+              <span className="inline-block skew-x-12">Let's work together</span>
             </Link>
             <Link href="/portfolio" className="border border-white/20 px-8 py-4 text-sm text-center font-bold uppercase tracking-widest hover:bg-white/5 transition-colors -skew-x-12">
-              <span className="inline-block skew-x-12">View Work</span>
+              <span className="inline-block skew-x-12">View Our Work</span>
             </Link>
           </div>
           <p className="mt-12 text-2xl lg:text-3xl font-bold max-w-3xl mx-auto leading-relaxed">
-            Fully AI-driven digital agency of over 30 talented experts, <span className="italic text-[#bff549]">we&apos;ve helped thousands of brands exceed their goals.</span>
+            Fully AI-driven digital agency of talented experts, <span className="italic text-[#bff549]">we&apos;ve helped thousands of brands exceed their goals.</span>
           </p>
         </div>
       </section>
@@ -113,27 +114,7 @@ export default function HomePage() {
       {/* Scrolling Services Section */}
       <ScrollingServices />
 
-      {/* Stats */}
-      <section className="py-32 bg-black border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-white/5 border border-white/5">
-            {stats.map((s) => (
-              <div
-                key={s.label}
-                className="bg-black p-12 flex flex-col items-center text-center group hover:bg-white/[0.02] transition-colors duration-500 relative overflow-hidden"
-              >
-                <div className="absolute inset-0 bg-[#bff549]/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="text-[#bff549] text-6xl font-black tracking-tighter mb-4 group-hover:scale-110 transition-transform duration-500 block relative">
-                  {s.value}
-                </span>
-                <span className="text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em] group-hover:text-slate-300 transition-colors duration-500 relative">
-                  {s.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BentoStats />
 
       {/* Featured clients marquee strip */}
       <section className="py-24 bg-black border-y border-white/5">
@@ -194,26 +175,47 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Client color grid */}
-      <section className="bg-black">
-        <div className="grid grid-cols-2 md:grid-cols-5">
-          {clients.map((c) => (
-            <div
-              key={c.name}
-              className="aspect-square flex flex-col items-center justify-center p-8 grayscale hover:grayscale-0 transition-all cursor-pointer group relative"
-              style={{ backgroundColor: c.bg }}
+      {/* Recent Work Section (Transformed from Client Grid) */}
+      <section className="bg-black py-32 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 mb-20 text-center">
+          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter italic">
+            Our Recent <span className="text-[#bff549]">Work</span>
+          </h2>
+          <p className="text-slate-500 text-lg mt-6 max-w-2xl mx-auto uppercase tracking-widest font-bold">
+            Delivering high-performance digital products for global leaders.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4">
+          {workItems.map((item) => (
+            <Link
+              key={item.title}
+              href="/portfolio"
+              className="aspect-square flex flex-col items-center justify-center p-8 grayscale hover:grayscale-0 transition-all cursor-pointer group relative overflow-hidden"
             >
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <span className="font-black text-2xl tracking-tighter text-center leading-tight mb-2 z-10" style={{ color: c.color }}>
-                {c.name}
-              </span>
-              <span className="text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-60 transition-opacity z-10" style={{ color: c.color }}>
-                Global Partner
-              </span>
-            </div>
+              <img
+                src={item.img}
+                alt={item.title}
+                className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700"
+              />
+              <div className="absolute inset-0 bg-black/60 group-hover:bg-[#bff549]/10 transition-colors" />
+
+              <div className="relative z-10 text-center">
+                <span className="text-[10px] font-bold text-[#bff549] uppercase tracking-[0.3em] block mb-2 opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
+                  {item.tag}
+                </span>
+                <span className="font-black text-2xl tracking-tighter text-white leading-tight block transform transition-transform group-hover:scale-110">
+                  {item.title}
+                </span>
+              </div>
+
+              {/* Decorative side accent */}
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-0 bg-[#bff549] group-hover:h-12 transition-all duration-500" />
+            </Link>
           ))}
         </div>
-        <div className="py-16 text-center border-t border-white/5">
+
+        <div className="py-10 text-center border-t border-white/5">
           <p className="text-slate-500 text-xs uppercase tracking-[0.4em] mb-8 font-bold">Trusted by 1000+ scaling teams worldwide</p>
           <Link
             href="/portfolio"
@@ -225,7 +227,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact form section */}
-      <section className="py-32 bg-black px-6 lg:px-20">
+      <section className="pt-16 pb-32 bg-black px-6 lg:px-20">
         <div className="max-w-4xl mx-auto bg-neutral-900 border border-white/10 p-12 lg:p-20 text-white">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-black tracking-tighter mb-4">Let&apos;s <span className="italic text-[#bff549]">Create Together</span></h2>
