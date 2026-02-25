@@ -139,13 +139,22 @@ export default function HomePage() {
               </div>
             </div>
             <div className="md:col-span-3">
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-12 items-center opacity-30 grayscale contrast-125">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS" className="h-6 md:h-10 w-auto mx-auto" />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Google_Cloud_Platform_logo.svg" alt="GCP" className="h-6 md:h-10 w-auto mx-auto" />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" className="h-6 md:h-10 w-auto mx-auto" />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="h-6 md:h-10 w-auto mx-auto" />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" className="h-6 md:h-10 w-auto mx-auto" />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple" className="h-6 md:h-10 w-auto mx-auto" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div className="aspect-video relative overflow-hidden border border-white/10 group">
+                  <img src="/C:/Users/LENOVO/.gemini/antigravity/brain/6beefefe-a324-438a-8d7d-c8bb89338d21/enterprise_infrastructure_1_1772051288669.png" alt="Enterprise Scale" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
+                  <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black to-transparent text-[10px] font-black uppercase tracking-widest text-[#bff549]">Infrastructure</div>
+                </div>
+                <div className="aspect-video relative overflow-hidden border border-white/10 group">
+                  <img src="/C:/Users/LENOVO/.gemini/antigravity/brain/6beefefe-a324-438a-8d7d-c8bb89338d21/global_network_scale_1772051398685.png" alt="Global Network" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
+                  <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black to-transparent text-[10px] font-black uppercase tracking-widest text-[#bff549]">Global Reach</div>
+                </div>
+                <div className="md:col-span-2 aspect-[3/1] relative overflow-hidden border border-white/10 group">
+                  <img src="/C:/Users/LENOVO/.gemini/antigravity/brain/6beefefe-a324-438a-8d7d-c8bb89338d21/high_performance_dashboard_1772051463859.png" alt="Performance Metrics" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
+                  <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black to-transparent">
+                    <div className="text-[10px] font-black uppercase tracking-widest text-[#bff549] mb-1">Performance</div>
+                    <div className="text-xl font-bold">Sub-100ms Architecture</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -240,18 +249,18 @@ export default function HomePage() {
               <img
                 src={project.img}
                 alt={project.title}
-                className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+                className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700"
               />
               {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-black/60 flex flex-col justify-end p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                <div className="text-[8px] font-black uppercase tracking-[0.3em] mb-2 text-[#bff549]">
+              <div className="absolute inset-0 bg-black/60 flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out">
+                <div className="text-[8px] font-black uppercase tracking-[0.3em] mb-2 text-[#bff549] transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                   {project.industry}
                 </div>
-                <h4 className="text-xl font-black uppercase tracking-tighter leading-tight mb-4">
+                <h4 className="text-xl font-black uppercase tracking-tighter leading-tight mb-4 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
                   {project.title.split(' ')[0]} <br />
                   <span className="italic text-slate-400">{project.title.split(' ').slice(1).join(' ')}</span>
                 </h4>
-                <div className="flex items-center gap-2 text-[8px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity delay-200">
+                <div className="flex items-center gap-2 text-[8px] font-bold uppercase tracking-widest transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">
                   <span>View Work</span>
                   <span className="material-symbols-outlined text-[#bff549] text-sm">arrow_forward</span>
                 </div>
@@ -278,22 +287,22 @@ export default function HomePage() {
       </section>
 
       {/* Contact form section */}
-      <section className="pt-16 pb-32 bg-white px-6 lg:px-20">
-        <div className="max-w-6xl mx-auto bg-white border border-black/5 p-12 lg:p-20 text-black shadow-2xl">
+      <section className="pt-16 pb-32 bg-white px-6 lg:px-20 overflow-hidden">
+        <div className="max-w-6xl mx-auto bg-neutral-900 border border-white/10 p-12 lg:p-20 text-white shadow-[0_0_100px_rgba(0,0,0,0.1)] relative">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-black tracking-tighter mb-4 uppercase">Let&apos;s <span className="italic text-[#bff549] drop-shadow-sm">Create Together</span></h2>
-            <p className="text-slate-500 text-lg font-medium">Tell us what you&apos;re interested in and we&apos;ll get right back to you</p>
+            <h2 className="text-5xl font-black tracking-tighter mb-4 uppercase">Let&apos;s <span className="italic text-[#bff549]">Create Together</span></h2>
+            <p className="text-slate-400 text-lg">Tell us what you&apos;re interested in and we&apos;ll get right back to you</p>
           </div>
-          <ContactForm theme="light" />
-          <div className="mt-20 pt-12 border-t border-black/5 grid md:grid-cols-3 gap-8 text-center">
+          <ContactForm theme="dark" />
+          <div className="mt-20 pt-12 border-t border-white/10 grid md:grid-cols-3 gap-8 text-center">
             {[
               { label: "Email", value: "hello@2guysdigital.com" },
               { label: "Call/Text", value: "1 (305) 555-5981" },
               { label: "Toll Free", value: "1 (855) 661-0016" },
             ].map((item) => (
               <div key={item.label}>
-                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">{item.label}</p>
-                <p className="font-bold text-black">{item.value}</p>
+                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">{item.label}</p>
+                <p className="font-bold text-white">{item.value}</p>
               </div>
             ))}
           </div>
