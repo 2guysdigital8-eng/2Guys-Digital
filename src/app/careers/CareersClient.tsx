@@ -1,0 +1,95 @@
+"use client";
+
+import Link from "next/link";
+
+const benefits = [
+    { title: "Remote-First", desc: "Work from anywhere in the world. We care about output, not hours spent at a desk.", icon: "public" },
+    { title: "Competitive Comp", desc: "Top-tier salary, equity packages, and performance bonuses.", icon: "paid" },
+    { title: "Home Office Budget", desc: "$2,000 allowance to build your perfect remote setup.", icon: "computer" },
+    { title: "Continuous Learning", desc: "Annual stipend for courses, conferences, and books.", icon: "menu_book" },
+];
+
+const jobs = [
+    { title: "Senior AI Engineer", department: "Engineering", location: "Remote / Global", type: "Full-time" },
+    { title: "Full-Stack Developer (Next.js)", department: "Engineering", location: "Remote / Global", type: "Full-time" },
+    { title: "Lead UI/UX Designer", department: "Design", location: "Remote / Global", type: "Full-time" },
+    { title: "Technical Project Manager", department: "Operations", location: "Remote / US Timezones", type: "Full-time" },
+];
+
+export default function CareersClient() {
+    return (
+        <div className="pt-[73px]">
+            {/* Hero Section */}
+            <section className="pt-24 pb-20 px-6 md:px-12 text-center border-b border-white/5">
+                <div className="max-w-4xl mx-auto">
+                    <h1 className="text-6xl md:text-8xl font-black mb-8 tracking-tighter uppercase leading-[0.9]">
+                        Build the <br /><span className="italic text-[#bff549]">Impossible.</span>
+                    </h1>
+                    <p className="text-slate-400 text-lg md:text-2xl max-w-3xl mx-auto leading-relaxed">
+                        We are looking for elite engineers, designers, and strategists who are obsessed with quality and driven by impact.
+                        Come do the best work of your life.
+                    </p>
+                </div>
+            </section>
+
+            {/* Why Join Us */}
+            <section className="py-24 px-6 md:px-12 bg-white/[0.02]">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-xs font-bold uppercase tracking-[0.4em] mb-4 text-[#bff549]">Perks & Benefits</h2>
+                        <h3 className="text-4xl md:text-5xl font-black tracking-tighter uppercase">Why Join <span className="italic text-[#bff549]">Us?</span></h3>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border border-white/10">
+                        {benefits.map((benefit) => (
+                            <div key={benefit.title} className="bg-black p-10 hover:bg-[#bff549]/5 transition-colors group">
+                                <span className="material-symbols-outlined text-4xl mb-6 text-slate-600 group-hover:text-[#bff549] transition-colors">{benefit.icon}</span>
+                                <h4 className="text-xl font-bold mb-3">{benefit.title}</h4>
+                                <p className="text-slate-400 text-sm leading-relaxed">{benefit.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Open Positions */}
+            <section className="py-32 px-6 md:px-12 border-y border-white/5">
+                <div className="max-w-5xl mx-auto">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-4">Open <span className="italic text-[#bff549]">Roles</span></h2>
+                        <p className="text-slate-400 max-w-lg mx-auto">Don't see a fit? Reach out anyway. We always have room for exceptional talent.</p>
+                    </div>
+
+                    <div className="space-y-4">
+                        {jobs.map((job) => (
+                            <Link href="/contact" key={job.title} className="group flex flex-col md:flex-row md:items-center justify-between p-8 border border-white/10 bg-black hover:bg-[#111] hover:border-[#bff549]/30 transition-all">
+                                <div>
+                                    <h4 className="text-2xl font-bold mb-2 group-hover:text-[#bff549] transition-colors">{job.title}</h4>
+                                    <div className="flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-widest text-slate-500">
+                                        <span>{job.department}</span>
+                                        <span className="w-1 h-1 bg-slate-700 rounded-full" />
+                                        <span>{job.location}</span>
+                                        <span className="w-1 h-1 bg-slate-700 rounded-full" />
+                                        <span>{job.type}</span>
+                                    </div>
+                                </div>
+                                <div className="mt-6 md:mt-0 flex items-center justify-center size-12 border border-white/10 group-hover:border-[#bff549] bg-white/5 group-hover:bg-[#bff549]/10 transition-colors">
+                                    <span className="material-symbols-outlined text-[#bff549] -rotate-45 group-hover:rotate-0 transition-transform">arrow_forward</span>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* General CTA */}
+            <section className="bg-black py-24 text-center px-6">
+                <p className="text-xl text-slate-400 mb-8 max-w-2xl mx-auto">
+                    Not ready to apply but want to stay in touch? Drop us a line with your portfolio or GitHub.
+                </p>
+                <Link href="/contact" className="inline-block bg-[#bff549] text-black px-10 py-5 font-black uppercase tracking-widest hover:scale-105 transition-transform -skew-x-12">
+                    <span className="inline-block skew-x-12">Contact Us</span>
+                </Link>
+            </section>
+        </div>
+    );
+}
