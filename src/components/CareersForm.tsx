@@ -8,8 +8,8 @@ interface CareersFormProps {
 }
 
 export default function CareersForm({
-    title = "Let's Create Together",
-    description = "Tell us what you're interested in and we'll get right back to you"
+    title = "General Application Apply Now",
+    description = "Share your story with us and let's build something extraordinary together."
 }: CareersFormProps) {
     const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
 
@@ -22,25 +22,25 @@ export default function CareersForm({
 
     if (status === 'success') {
         return (
-            <div className="p-12 bg-white text-center border border-slate-200">
+            <div className="p-12 bg-neutral-900 text-center border border-white/5">
                 <div className="size-16 bg-[#bff549]/10 rounded-full flex items-center justify-center mx-auto mb-6">
                     <span className="material-symbols-outlined text-[#bff549] text-3xl">check_circle</span>
                 </div>
-                <h3 className="text-2xl font-black uppercase tracking-tighter text-black">Message Sent</h3>
-                <p className="text-slate-500 text-sm mt-4">We've received your request and will get back to you shortly.</p>
+                <h3 className="text-2xl font-black uppercase tracking-tighter text-white">Application Received</h3>
+                <p className="text-slate-400 text-sm mt-4">We've received your application and will review it shortly. Keep an eye on your inbox.</p>
             </div>
         );
     }
 
     return (
-        <div className="bg-white p-12 lg:p-20 relative">
+        <div className="bg-neutral-900 p-12 lg:p-20 relative border border-white/5">
             <div className="absolute top-4 right-4 bg-[#f8e132] text-black px-4 py-1 font-black text-xl italic skew-x-[-15deg]">
-                <span className="inline-block skew-x-[15deg]">C2</span>
+                <span className="inline-block skew-x-[15deg]">C2 Digital</span>
             </div>
 
             <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-black mb-4 italic leading-none">{title}</h2>
-                <p className="text-slate-500 font-medium">{description}</p>
+                <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4 italic leading-none">{title}</h2>
+                <p className="text-slate-400 font-medium">{description}</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -49,13 +49,13 @@ export default function CareersForm({
                         required
                         type="text"
                         placeholder="First Name"
-                        className="w-full bg-[#f8f8f8] border border-slate-200 h-16 px-6 text-black focus:border-[#f8e132] outline-none transition-colors"
+                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#f8e132] outline-none transition-colors"
                     />
                     <input
                         required
                         type="text"
                         placeholder="Last Name"
-                        className="w-full bg-[#f8f8f8] border border-slate-200 h-16 px-6 text-black focus:border-[#f8e132] outline-none transition-colors"
+                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#f8e132] outline-none transition-colors"
                     />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -63,34 +63,34 @@ export default function CareersForm({
                         required
                         type="tel"
                         placeholder="Your Phone Number"
-                        className="w-full bg-[#f8f8f8] border border-slate-200 h-16 px-6 text-black focus:border-[#f8e132] outline-none transition-colors"
+                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#f8e132] outline-none transition-colors"
                     />
                     <input
                         required
                         type="email"
-                        placeholder="Your Email"
-                        className="w-full bg-[#f8f8f8] border border-slate-200 h-16 px-6 text-black focus:border-[#f8e132] outline-none transition-colors"
+                        placeholder="Your Email Address"
+                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#f8e132] outline-none transition-colors"
                     />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <select className="w-full bg-[#f8f8f8] border border-slate-200 h-16 px-6 text-slate-500 focus:border-[#f8e132] outline-none appearance-none transition-colors">
-                        <option>Select Project Type</option>
-                        <option>Web Development</option>
-                        <option>Mobile App</option>
-                        <option>AI Automation</option>
-                    </select>
-                    <select className="w-full bg-[#f8f8f8] border border-slate-200 h-16 px-6 text-slate-500 focus:border-[#f8e132] outline-none appearance-none transition-colors">
-                        <option>Select Budget</option>
-                        <option>$10k - $25k</option>
-                        <option>$25k - $50k</option>
-                        <option>$50k+</option>
-                    </select>
+                    <input
+                        required
+                        type="url"
+                        placeholder="Portfolio / GitHub Link"
+                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#f8e132] outline-none transition-colors"
+                    />
+                    <input
+                        required
+                        type="url"
+                        placeholder="Resume / CV Link"
+                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#f8e132] outline-none transition-colors"
+                    />
                 </div>
                 <textarea
                     required
-                    placeholder="Tell us more about your project"
+                    placeholder="Tell us more about yourself and your career goals..."
                     rows={6}
-                    className="w-full bg-[#f8f8f8] border border-slate-200 p-6 text-black focus:border-[#f8e132] outline-none transition-colors resize-none"
+                    className="w-full bg-white/5 border border-white/10 p-6 text-white focus:border-[#f8e132] outline-none transition-colors resize-none"
                 />
 
                 <button
@@ -98,25 +98,25 @@ export default function CareersForm({
                     disabled={status === 'sending'}
                     className="w-full bg-[#f8e132] text-black h-16 font-black uppercase tracking-widest italic hover:brightness-105 transition-all text-xl"
                 >
-                    {status === 'sending' ? 'Sending...' : 'submit message'}
+                    {status === 'sending' ? 'Sending Application...' : 'Submit Application'}
                 </button>
 
                 <div className="relative pt-12 text-center">
-                    <div className="absolute top-12 left-0 w-full h-px bg-slate-200" />
-                    <span className="relative z-10 bg-white px-4 text-xs font-black uppercase tracking-widest text-black">or</span>
+                    <div className="absolute top-12 left-0 w-full h-px bg-white/10" />
+                    <span className="relative z-10 bg-neutral-900 px-4 text-xs font-black uppercase tracking-widest text-slate-500">or</span>
 
-                    <div className="grid grid-cols-3 gap-8 mt-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                         <div>
-                            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Email</p>
-                            <p className="font-black text-xs text-black">hello@c2-digital.com</p>
+                            <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-2">Email Talent Team</p>
+                            <p className="font-black text-xs text-white">careers@c2-digital.com</p>
                         </div>
                         <div>
-                            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Call/Text</p>
-                            <p className="font-black text-xs text-black">1 (305) 330 5981</p>
+                            <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-2">Office Direct</p>
+                            <p className="font-black text-xs text-white">1 (305) 330 5981</p>
                         </div>
                         <div>
-                            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Toll Free</p>
-                            <p className="font-black text-xs text-black">1 (855) 661-0016</p>
+                            <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-2">Global Operations</p>
+                            <p className="font-black text-xs text-white">1 (855) 661-0016</p>
                         </div>
                     </div>
                 </div>

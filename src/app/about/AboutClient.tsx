@@ -18,7 +18,7 @@ const values = [
 
 export default function AboutClient() {
     return (
-        <div className="pt-[73px] bg-[#efefef]">
+        <div className="pt-[73px] bg-black">
             {/* Hero Section */}
             <section className="pt-24 pb-20 px-6 md:px-12 text-center border-b border-black/5 bg-black text-white">
                 <div className="max-w-4xl mx-auto">
@@ -31,14 +31,13 @@ export default function AboutClient() {
                 </div>
             </section>
 
-            {/* Our Story */}
-            <section className="py-24 px-6 md:px-12 bg-black/5">
+            <section className="py-24 px-6 md:px-12 bg-neutral-900 border-y border-white/5">
                 <div className="max-w-4xl mx-auto border-l-4 border-[#bff549] pl-8 md:pl-16">
                     <h2 className="text-sm font-bold uppercase tracking-[0.3em] text-[#bff549] mb-4">Our Story</h2>
-                    <h3 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-black">
+                    <h3 className="text-4xl md:text-5xl font-bold mb-8 leading-tight text-white">
                         We started with a simple belief: <span className="italic text-slate-400">most enterprise software is too slow, too boring, and too fragile.</span>
                     </h3>
-                    <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
+                    <div className="space-y-6 text-slate-400 text-lg leading-relaxed">
                         <p>
                             Founded in 2021 by two engineers tired of the bureaucratic red tape of big tech, 2Guys Digital was born out of a desire to build uncompromised digital products. We didn't want to just build websites; we wanted to engineer high-performance engines for growth.
                         </p>
@@ -50,22 +49,22 @@ export default function AboutClient() {
             </section>
 
             {/* Our Team */}
-            <section className="py-32 px-6 md:px-12 border-y border-black/5 bg-white">
+            <section className="py-32 px-6 md:px-12 border-b border-white/5 bg-black">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                         <div>
-                            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 uppercase text-black">The <span className="italic text-[#bff549]">Collective</span></h2>
-                            <p className="text-slate-500 max-w-lg text-lg">The minds behind the machines.</p>
+                            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 uppercase text-white">The <span className="italic text-[#bff549]">Collective</span></h2>
+                            <p className="text-slate-400 max-w-lg text-lg">The minds behind the machines.</p>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-black/10 border border-black/10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 border border-white/5">
                         {teamMembers.map((member) => (
-                            <div key={member.name} className="bg-white p-10 hover:bg-neutral-50 transition-colors group">
-                                <div className="aspect-square bg-[#efefef] mb-8 flex items-center justify-center border border-black/5 group-hover:border-[#bff549]/30 transition-colors">
-                                    <span className="text-5xl font-black text-slate-300 group-hover:text-[#bff549] transition-colors">{member.initials}</span>
+                            <div key={member.name} className="bg-neutral-900 p-10 hover:bg-[#bff549]/5 transition-colors group">
+                                <div className="aspect-square bg-black mb-8 flex items-center justify-center border border-white/5 group-hover:border-[#bff549]/30 transition-colors">
+                                    <span className="text-5xl font-black text-slate-800 group-hover:text-[#bff549] transition-colors">{member.initials}</span>
                                 </div>
-                                <h4 className="text-2xl font-bold mb-2 text-black">{member.name}</h4>
+                                <h4 className="text-2xl font-bold mb-2 text-white">{member.name}</h4>
                                 <p className="text-sm text-[#bff549] font-bold uppercase tracking-widest">{member.role}</p>
                             </div>
                         ))}
@@ -74,55 +73,55 @@ export default function AboutClient() {
             </section>
 
             {/* Trust & Recognition */}
-            <section className="py-32 px-6 md:px-12 bg-black/5 border-y border-black/5">
+            <section className="py-32 px-6 md:px-12 bg-neutral-900 border-b border-white/5">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid md:grid-cols-2 gap-20 items-center">
                         <div>
                             <h2 className="text-xs font-bold uppercase tracking-[0.4em] mb-8 text-[#bff549]">Trust & Scale</h2>
-                            <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-8 text-black">
+                            <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-8 text-white">
                                 Why Industry Leaders <br /><span className="italic text-slate-400">Trust Us.</span>
                             </h3>
-                            <p className="text-slate-600 text-lg leading-relaxed mb-12">
+                            <p className="text-slate-400 text-lg leading-relaxed mb-12">
                                 We operate at the intersection of aesthetic excellence and engineering rigor. Our systems power billions in transactions and serve millions of users daily.
                             </p>
                             <div className="grid grid-cols-2 gap-8">
                                 <div>
-                                    <div className="text-4xl font-black mb-1 text-black">99.99%</div>
-                                    <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Uptime Reliability</div>
+                                    <div className="text-4xl font-black mb-1 text-white">99.99%</div>
+                                    <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Uptime Reliability</div>
                                 </div>
                                 <div>
-                                    <div className="text-4xl font-black mb-1 text-black">&lt;100ms</div>
-                                    <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Average Latency</div>
+                                    <div className="text-4xl font-black mb-1 text-white">&lt;100ms</div>
+                                    <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Average Latency</div>
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-white p-12 lg:p-20 border border-black/5 relative overflow-hidden shadow-sm">
+                        <div className="bg-black p-12 lg:p-20 border border-white/10 relative overflow-hidden">
                             <div className="absolute top-0 left-0 size-24 border-t-2 border-l-2 border-[#bff549]/20" />
                             <div className="space-y-12">
                                 <div className="flex items-center gap-6 group">
-                                    <div className="size-12 bg-[#efefef] rounded-full flex items-center justify-center group-hover:bg-[#bff549]/10 transition-colors">
+                                    <div className="size-12 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-[#bff549]/10 transition-colors">
                                         <span className="material-symbols-outlined text-[#bff549]/50 group-hover:text-[#bff549]">workspace_premium</span>
                                     </div>
                                     <div>
-                                        <h4 className="font-bold uppercase tracking-widest text-sm text-black">Verified Shopify Plus Partners</h4>
+                                        <h4 className="font-bold uppercase tracking-widest text-sm text-white">Verified Shopify Plus Partners</h4>
                                         <p className="text-xs text-slate-500 mt-1">Certified e-commerce excellence at scale.</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-6 group">
-                                    <div className="size-12 bg-[#efefef] rounded-full flex items-center justify-center group-hover:bg-[#bff549]/10 transition-colors">
+                                    <div className="size-12 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-[#bff549]/10 transition-colors">
                                         <span className="material-symbols-outlined text-[#bff549]/50 group-hover:text-[#bff549]">cloud_done</span>
                                     </div>
                                     <div>
-                                        <h4 className="font-bold uppercase tracking-widest text-sm text-black">AWS Advanced Consulting</h4>
+                                        <h4 className="font-bold uppercase tracking-widest text-sm text-white">AWS Advanced Consulting</h4>
                                         <p className="text-xs text-slate-500 mt-1">Enterprise cloud architecture & security.</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-6 group">
-                                    <div className="size-12 bg-[#efefef] rounded-full flex items-center justify-center group-hover:bg-[#bff549]/10 transition-colors">
+                                    <div className="size-12 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-[#bff549]/10 transition-colors">
                                         <span className="material-symbols-outlined text-[#bff549]/50 group-hover:text-[#bff549]">bolt</span>
                                     </div>
                                     <div>
-                                        <h4 className="font-bold uppercase tracking-widest text-sm text-black">Vercel Strategic Partner</h4>
+                                        <h4 className="font-bold uppercase tracking-widest text-sm text-white">Vercel Strategic Partner</h4>
                                         <p className="text-xs text-slate-500 mt-1">Leading the edge-first development movement.</p>
                                     </div>
                                 </div>

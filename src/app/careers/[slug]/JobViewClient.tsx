@@ -9,7 +9,7 @@ export default function JobViewClient({ job }: { job: any }) {
     const [showForm, setShowForm] = useState(false);
 
     return (
-        <div className="pt-[73px] bg-[#efefef]">
+        <div className="pt-[73px] bg-black">
             {/* Job Header */}
             <section className="py-24 px-6 md:px-12 border-b border-black/5 bg-black text-white">
                 <div className="max-w-5xl mx-auto">
@@ -50,8 +50,8 @@ export default function JobViewClient({ job }: { job: any }) {
             {/* Job Content */}
             <section className="py-24 px-6 md:px-12 max-w-5xl mx-auto">
                 <div className={`grid ${showForm ? 'md:grid-cols-1' : 'md:grid-cols-3'} gap-20`}>
-                    <div className={`${showForm ? 'hidden' : 'md:col-span-2'} prose prose-slate max-w-none`}>
-                        <div className="text-slate-600 text-lg leading-relaxed whitespace-pre-line">
+                    <div className={`${showForm ? 'hidden' : 'md:col-span-2'} prose prose-invert max-w-none`}>
+                        <div className="text-slate-400 text-lg leading-relaxed whitespace-pre-line">
                             {job.fullDescription}
                         </div>
                     </div>
@@ -60,10 +60,10 @@ export default function JobViewClient({ job }: { job: any }) {
                         {showForm ? (
                             <div id="apply-form" className="scroll-mt-32">
                                 <div className="flex items-center justify-between mb-8">
-                                    <h2 className="text-2xl font-black uppercase tracking-tighter text-black">Application Details</h2>
+                                    <h2 className="text-2xl font-black uppercase tracking-tighter text-white">Application Details</h2>
                                     <button
                                         onClick={() => setShowForm(false)}
-                                        className="text-xs font-black uppercase tracking-widest text-slate-500 hover:text-black transition-colors"
+                                        className="text-xs font-black uppercase tracking-widest text-slate-500 hover:text-white transition-colors"
                                     >
                                         Cancel
                                     </button>
@@ -71,7 +71,7 @@ export default function JobViewClient({ job }: { job: any }) {
                                 <CareersForm />
                             </div>
                         ) : (
-                            <div className="p-8 border border-black/5 bg-white sticky top-32">
+                            <div className="p-8 border border-white/5 bg-neutral-900 sticky top-32">
                                 <h3 className="text-xs font-black uppercase tracking-[0.3em] mb-8 text-[#bff549]">Our Process</h3>
                                 <div className="space-y-6">
                                     {[
@@ -81,10 +81,10 @@ export default function JobViewClient({ job }: { job: any }) {
                                         { s: "04", t: "Final Offer", d: "Welcome to 2Guys Digital." },
                                     ].map(step => (
                                         <div key={step.s} className="flex gap-4">
-                                            <span className="text-[10px] font-black text-slate-200">{step.s}</span>
+                                            <span className="text-[10px] font-black text-slate-800">{step.s}</span>
                                             <div>
-                                                <div className="text-sm font-bold uppercase tracking-widest mb-1 text-black">{step.t}</div>
-                                                <div className="text-xs text-slate-500">{step.d}</div>
+                                                <div className="text-sm font-bold uppercase tracking-widest mb-1 text-white">{step.t}</div>
+                                                <div className="text-xs text-slate-400">{step.d}</div>
                                             </div>
                                         </div>
                                     ))}
@@ -96,7 +96,7 @@ export default function JobViewClient({ job }: { job: any }) {
                                             document.getElementById('apply-form')?.scrollIntoView({ behavior: 'smooth' });
                                         }, 100);
                                     }}
-                                    className="mt-12 w-full border border-black/10 hover:border-[#bff549] text-black h-14 flex items-center justify-center font-black uppercase tracking-widest text-xs -skew-x-12 transition-all group"
+                                    className="mt-12 w-full border border-white/10 hover:border-[#bff549] text-white h-14 flex items-center justify-center font-black uppercase tracking-widest text-xs -skew-x-12 transition-all group"
                                 >
                                     <span className="inline-block skew-x-12 group-hover:text-[#bff549]">Quick Apply</span>
                                 </button>
