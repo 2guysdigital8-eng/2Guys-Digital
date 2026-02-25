@@ -12,6 +12,7 @@ export default function CareersForm({
     description = "Share your story with us and let's build something extraordinary together."
 }: CareersFormProps) {
     const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
+    const [resumeName, setResumeName] = useState<string>('');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -34,7 +35,7 @@ export default function CareersForm({
 
     return (
         <div className="bg-neutral-900 p-12 lg:p-20 relative border border-white/5">
-            <div className="absolute top-4 right-4 bg-[#f8e132] text-black px-4 py-1 font-black text-xl italic skew-x-[-15deg]">
+            <div className="absolute top-4 right-4 bg-[#bff549] text-black px-4 py-1 font-black text-xl italic skew-x-[-15deg]">
                 <span className="inline-block skew-x-[15deg]">C2 Digital</span>
             </div>
 
@@ -49,13 +50,13 @@ export default function CareersForm({
                         required
                         type="text"
                         placeholder="First Name"
-                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#f8e132] outline-none transition-colors"
+                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#bff549] outline-none transition-colors"
                     />
                     <input
                         required
                         type="text"
                         placeholder="Last Name"
-                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#f8e132] outline-none transition-colors"
+                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#bff549] outline-none transition-colors"
                     />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -63,13 +64,13 @@ export default function CareersForm({
                         required
                         type="tel"
                         placeholder="Your Phone Number"
-                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#f8e132] outline-none transition-colors"
+                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#bff549] outline-none transition-colors"
                     />
                     <input
                         required
                         type="email"
                         placeholder="Your Email Address"
-                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#f8e132] outline-none transition-colors"
+                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#bff549] outline-none transition-colors"
                     />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -77,26 +78,39 @@ export default function CareersForm({
                         required
                         type="url"
                         placeholder="Portfolio / GitHub Link"
-                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#f8e132] outline-none transition-colors"
+                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#bff549] outline-none transition-colors"
                     />
-                    <input
-                        required
-                        type="url"
-                        placeholder="Resume / CV Link"
-                        className="w-full bg-white/5 border border-white/10 h-16 px-6 text-white focus:border-[#f8e132] outline-none transition-colors"
-                    />
+                    <div className="relative group">
+                        <input
+                            required
+                            type="file"
+                            id="resume-upload"
+                            accept=".pdf,.doc,.docx"
+                            onChange={(e) => setResumeName(e.target.files?.[0]?.name || '')}
+                            className="hidden"
+                        />
+                        <label
+                            htmlFor="resume-upload"
+                            className="w-full bg-white/5 border border-white/10 h-16 px-6 flex items-center justify-between text-slate-400 group-hover:border-[#bff549] cursor-pointer transition-colors"
+                        >
+                            <span className="text-sm truncate pr-4">
+                                {resumeName || "Upload Resume / CV (PDF)"}
+                            </span>
+                            <span className="material-symbols-outlined text-[#bff549]">upload_file</span>
+                        </label>
+                    </div>
                 </div>
                 <textarea
                     required
                     placeholder="Tell us more about yourself and your career goals..."
                     rows={6}
-                    className="w-full bg-white/5 border border-white/10 p-6 text-white focus:border-[#f8e132] outline-none transition-colors resize-none"
+                    className="w-full bg-white/5 border border-white/10 p-6 text-white focus:border-[#bff549] outline-none transition-colors resize-none"
                 />
 
                 <button
                     type="submit"
                     disabled={status === 'sending'}
-                    className="w-full bg-[#f8e132] text-black h-16 font-black uppercase tracking-widest italic hover:brightness-105 transition-all text-xl"
+                    className="w-full bg-[#bff549] text-black h-16 font-black uppercase tracking-widest italic hover:brightness-105 transition-all text-xl"
                 >
                     {status === 'sending' ? 'Sending Application...' : 'Submit Application'}
                 </button>

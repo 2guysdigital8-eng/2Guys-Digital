@@ -90,10 +90,6 @@ export default function CareersClient() {
             {/* Application Form Section */}
             <section className="py-32 px-6 md:px-12 bg-black border-t border-white/5">
                 <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-xs font-bold uppercase tracking-[0.4em] mb-4 text-[#bff549]">Join the Mission</h2>
-                        <h3 className="text-4xl md:text-6xl font-black tracking-tighter uppercase text-white">General Application <br /><span className="italic text-[#bff549]">Apply Now</span></h3>
-                    </div>
                     <CareersForm />
                 </div>
             </section>

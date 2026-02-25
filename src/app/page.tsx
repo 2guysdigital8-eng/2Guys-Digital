@@ -139,23 +139,21 @@ export default function HomePage() {
               </div>
             </div>
             <div className="md:col-span-3">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="aspect-video relative overflow-hidden border border-white/10 group">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/assets/infrastructure.png" alt="Enterprise Scale" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
-                  <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black to-transparent text-[10px] font-black uppercase tracking-widest text-[#bff549]">Infrastructure</div>
+                  <img src="/assets/infrastructure.png" alt="Enterprise Scale" className="w-full h-full object-cover transition-all duration-700" />
+                  <div className="absolute inset-x-0 bottom-0 p-4 bg-black/40 text-[10px] font-black uppercase tracking-widest text-[#bff549]">Infrastructure</div>
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="aspect-square relative overflow-hidden border border-white/10 group">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/assets/global-scale.png" alt="Global Network" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
-                    <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black to-transparent text-[8px] font-black uppercase tracking-widest text-[#bff549]">Latency</div>
-                  </div>
-                  <div className="aspect-square relative overflow-hidden border border-white/10 group">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/assets/performance-dashboard.png" alt="Performance" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
-                    <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black to-transparent text-[8px] font-black uppercase tracking-widest text-[#bff549]">Performance</div>
-                  </div>
+                <div className="aspect-video relative overflow-hidden border border-white/10 group">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/assets/global-scale.png" alt="Global Network" className="w-full h-full object-cover transition-all duration-700" />
+                  <div className="absolute inset-x-0 bottom-0 p-4 bg-black/40 text-[10px] font-black uppercase tracking-widest text-[#bff549]">Latency</div>
+                </div>
+                <div className="md:col-span-2 aspect-[21/9] relative overflow-hidden border border-white/10 group">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/assets/performance-dashboard.png" alt="Performance" className="w-full h-full object-cover transition-all duration-700" />
+                  <div className="absolute inset-x-0 bottom-0 p-4 bg-black/40 text-[10px] font-black uppercase tracking-widest text-[#bff549]">Performance</div>
                 </div>
               </div>
             </div>
