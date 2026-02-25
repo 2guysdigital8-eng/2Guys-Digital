@@ -102,7 +102,7 @@ export default function HomePage() {
             <Link href="/contact" className="bg-[#bff549] text-black px-8 py-4 text-sm font-bold uppercase tracking-widest text-center hover:scale-105 transition-transform -skew-x-12">
               <span className="inline-block skew-x-12">Let's work together</span>
             </Link>
-            <Link href="/portfolio" className="border border-white/20 px-8 py-4 text-sm text-center font-bold uppercase tracking-widest hover:bg-white/5 transition-colors -skew-x-12">
+            <Link href="/portfolio" className="border border-white/20 px-8 py-4 text-sm text-center font-bold uppercase tracking-widest hover:bg-[#efefef]/5 transition-colors -skew-x-12">
               <span className="inline-block skew-x-12">View Our Work</span>
             </Link>
           </div>
@@ -141,18 +141,20 @@ export default function HomePage() {
             <div className="md:col-span-3">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                 <div className="aspect-video relative overflow-hidden border border-white/10 group">
-                  <img src="/C:/Users/LENOVO/.gemini/antigravity/brain/6beefefe-a324-438a-8d7d-c8bb89338d21/enterprise_infrastructure_1_1772051288669.png" alt="Enterprise Scale" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/assets/infrastructure.png" alt="Enterprise Scale" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
                   <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black to-transparent text-[10px] font-black uppercase tracking-widest text-[#bff549]">Infrastructure</div>
                 </div>
-                <div className="aspect-video relative overflow-hidden border border-white/10 group">
-                  <img src="/C:/Users/LENOVO/.gemini/antigravity/brain/6beefefe-a324-438a-8d7d-c8bb89338d21/global_network_scale_1772051398685.png" alt="Global Network" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
-                  <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black to-transparent text-[10px] font-black uppercase tracking-widest text-[#bff549]">Global Reach</div>
-                </div>
-                <div className="md:col-span-2 aspect-[3/1] relative overflow-hidden border border-white/10 group">
-                  <img src="/C:/Users/LENOVO/.gemini/antigravity/brain/6beefefe-a324-438a-8d7d-c8bb89338d21/high_performance_dashboard_1772051463859.png" alt="Performance Metrics" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
-                  <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black to-transparent">
-                    <div className="text-[10px] font-black uppercase tracking-widest text-[#bff549] mb-1">Performance</div>
-                    <div className="text-xl font-bold">Sub-100ms Architecture</div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="aspect-square relative overflow-hidden border border-white/10 group">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/assets/global-scale.png" alt="Global Network" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
+                    <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black to-transparent text-[8px] font-black uppercase tracking-widest text-[#bff549]">Latency</div>
+                  </div>
+                  <div className="aspect-square relative overflow-hidden border border-white/10 group">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/assets/performance-dashboard.png" alt="Performance" className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
+                    <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black to-transparent text-[8px] font-black uppercase tracking-widest text-[#bff549]">Performance</div>
                   </div>
                 </div>
               </div>
@@ -213,7 +215,7 @@ export default function HomePage() {
               <h2 className="text-4xl font-bold leading-tight">
                 Dedicated to delivering excellence <span className="italic text-[#bff549]">for our clients.</span>
               </h2>
-              <div className="bg-white/5 p-10 border-l-4 border-[#bff549]">
+              <div className="bg-[#efefef]/5 p-10 border-l-4 border-[#bff549]">
                 <div className="flex gap-1 text-[#bff549] mb-6">
                   {[...Array(5)].map((_, i) => (
                     <span key={i} className="material-symbols-outlined fill-icon">star</span>
@@ -243,7 +245,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-0 bg-white/5 border-y border-white/5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-0 bg-[#efefef]/5 border-y border-white/5">
           {caseStudies.slice(0, 10).map((project) => (
             <Link href={`/portfolio/${project.slug}`} key={project.id} className="group relative aspect-[4/5] overflow-hidden bg-neutral-900 border-r border-b border-white/5">
               <img
@@ -287,7 +289,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact form section */}
-      <section className="pt-16 pb-32 bg-white px-6 lg:px-20 overflow-hidden">
+      <section className="pt-16 pb-32 bg-[#efefef] px-6 lg:px-20 overflow-hidden">
         <div className="max-w-6xl mx-auto bg-neutral-900 border border-white/10 p-12 lg:p-20 text-white shadow-[0_0_100px_rgba(0,0,0,0.1)] relative">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-black tracking-tighter mb-4 uppercase">Let&apos;s <span className="italic text-[#bff549]">Create Together</span></h2>

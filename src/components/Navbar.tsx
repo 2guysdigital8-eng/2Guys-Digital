@@ -55,7 +55,7 @@ export default function Navbar() {
                     <div className="flex items-center gap-6">
                         <Link
                             href="/contact"
-                            className="hidden md:flex bg-[#bff549] text-black px-10 h-14 items-center justify-center text-xs font-black uppercase tracking-[0.2em] hover:bg-white transition-all -skew-x-12"
+                            className="hidden md:flex bg-[#bff549] text-black px-10 h-14 items-center justify-center text-xs font-black uppercase tracking-[0.2em] hover:bg-[#efefef] transition-all -skew-x-12"
                         >
                             <span className="inline-block skew-x-12">Get Free Website</span>
                         </Link>

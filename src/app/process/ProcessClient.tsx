@@ -120,7 +120,7 @@ export default function ProcessClient() {
                                     { icon: "speed", value: "Sub-100ms", label: "Global Response Time" },
                                     { icon: "encrypted", value: "Zero-Trust", label: "Enterprise Security Layer" },
                                 ].map((item) => (
-                                    <div key={item.value} className="flex items-center gap-4 p-4 border border-white/5 bg-white/5">
+                                    <div key={item.value} className="flex items-center gap-4 p-4 border border-white/5 bg-[#efefef]/5">
                                         <div className="size-12 bg-[#bef547]/10 flex items-center justify-center text-[#bef547]">
                                             <span className="material-symbols-outlined">{item.icon}</span>
                                         </div>
@@ -140,7 +140,7 @@ export default function ProcessClient() {
                                     className="w-full h-full object-cover opacity-60 grayscale"
                                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq-f4uF-pFgnYtmetCbugj3flI9RCPlmVqHAd3PIVzbhh8BKkbCBCxXOpwWYIP7WvkBn12RqLOZbqXB3TCZJhmFlPVyNfNC2N9CpRSeT-T-O0d52lpBhI9zx577ztKgDrL5idD5LFKK86zLstS_lulBobdUQvpEshcyEl_N4bcn_U8GxTP2RLeZAAuDJ_rIEEQ4HiQsNHnbQYK-PsN2zIWF1Em5l3Is5tmR7RTMRNFgi-zNZ8AoVsZHuyBJ-X5QUhJjThV2z22N0Y"
                                 />
-                                <div className="absolute bottom-10 left-[-20px] lg:left-[-40px] bg-black border border-white/10 p-8 max-w-[280px] shadow-2xl backdrop-blur-xl">
+                                <div className="absolute bottom-10 -left-6 lg:-left-12 bg-black border border-white/10 p-8 max-w-[280px] shadow-2xl backdrop-blur-xl z-20">
                                     <div className="flex items-center gap-4 mb-4">
                                         <div className="size-10 bg-[#bef547]/20 flex items-center justify-center text-[#bef547]">
                                             <span className="material-symbols-outlined">bolt</span>

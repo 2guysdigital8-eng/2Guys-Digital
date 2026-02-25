@@ -68,7 +68,7 @@ export default function ServicesClient() {
             </section>
 
             {/* Marquee */}
-            <div className="py-10 overflow-hidden border-y border-white/5 bg-white/[0.02]">
+            <div className="py-10 overflow-hidden border-y border-white/5 bg-[#efefef]/[0.02]">
                 <div className="flex">
                     <div className="marquee-track text-6xl lg:text-8xl font-black uppercase whitespace-nowrap opacity-20">
                         <span className="pr-12">Development.</span>
@@ -85,7 +85,7 @@ export default function ServicesClient() {
 
             {/* Services 2×2 */}
             <section className="px-6 lg:px-20 py-24">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#efefef]/10 border border-white/10">
                     {services.map((s, i) => (
                         <div key={s.num} className={`group bg-black p-12 lg:p-20 hover:bg-[#bff549]/5 transition-colors ${i >= 2 ? "border-t border-white/10" : ""} ${i % 2 === 1 ? "border-l border-white/10" : ""}`}>
                             <div className="mb-8 flex justify-between items-start">
@@ -104,7 +104,7 @@ export default function ServicesClient() {
             </section>
 
             {/* Technical prowess */}
-            <section className="px-6 lg:px-20 py-24 bg-white/[0.02]">
+            <section className="px-6 lg:px-20 py-24 bg-[#efefef]/[0.02]">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                         <div>
@@ -130,7 +130,7 @@ export default function ServicesClient() {
                                                 setSelectedYear(year);
                                                 setIsYearMenuOpen(false);
                                             }}
-                                            className={`w-full text-right px-6 py-3 text-2xl font-black block transition-colors hover:bg-white/5 ${selectedYear === year ? "text-[#bff549]" : "text-white/40"}`}
+                                            className={`w-full text-right px-6 py-3 text-2xl font-black block transition-colors hover:bg-[#efefef]/5 ${selectedYear === year ? "text-[#bff549]" : "text-white/40"}`}
                                         >
                                             {year}
                                         </button>
@@ -161,7 +161,7 @@ export default function ServicesClient() {
             <section className="px-6 lg:px-20 py-32">
                 <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
                     <div className="flex-1 relative">
-                        <div className="aspect-square bg-white/5 overflow-hidden border border-white/10 group">
+                        <div className="aspect-square bg-[#efefef]/5 overflow-hidden border border-white/10 group">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img alt="AI Workflow" className="w-full h-full object-cover opacity-50 group-hover:scale-105 transition-transform duration-700"
                                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZXsBQVHbNs01FYNj8JNQZtzaTBSxN4_YBSOrhvhAchb7TRnCKoh9l15MP_FVFT8IEygfMXR4ddwQl_0bJc7nbLRWi_RKct_65lZrd5FrBjf5u7BcM3IVOfJBI2nlu9arWTXbK-oYDvYv6HkHUogQN4JVuTp09_GKuWsCVIs-pvf0Llll3gHDk4G7VZc9loS9TwVa3jvtqnrd3QT0u1RZp32EbF9rPtuhOgU5fWfDdrjINr30ZmkucOy02i9KY9qV03yFXzaR5Oao" />
@@ -190,7 +190,7 @@ export default function ServicesClient() {
                                 { title: "Legacy System Bridge", desc: "Connecting modern AI capabilities with your existing ERP and CRM ecosystems." },
                             ].map((item) => (
                                 <div key={item.title} className="flex gap-6">
-                                    <div className="size-8 bg-white/10 flex items-center justify-center shrink-0">
+                                    <div className="size-8 bg-[#efefef]/10 flex items-center justify-center shrink-0">
                                         <span className="material-symbols-outlined text-[#bff549] text-sm">check</span>
                                     </div>
                                     <div>

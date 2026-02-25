@@ -47,7 +47,7 @@ export default function JobApplyForm({ jobTitle, onClose }: JobApplyFormProps) {
                         required
                         type="text"
                         placeholder="John Doe"
-                        className="w-full bg-white/5 border-b border-white/10 p-4 outline-none focus:border-[#bff549] transition-colors text-white"
+                        className="w-full bg-[#efefef]/5 border-b border-white/10 p-4 outline-none focus:border-[#bff549] transition-colors text-white"
                     />
                 </div>
                 <div className="space-y-2">
@@ -56,7 +56,7 @@ export default function JobApplyForm({ jobTitle, onClose }: JobApplyFormProps) {
                         required
                         type="email"
                         placeholder="john@example.com"
-                        className="w-full bg-white/5 border-b border-white/10 p-4 outline-none focus:border-[#bff549] transition-colors text-white"
+                        className="w-full bg-[#efefef]/5 border-b border-white/10 p-4 outline-none focus:border-[#bff549] transition-colors text-white"
                     />
                 </div>
             </div>
@@ -68,7 +68,7 @@ export default function JobApplyForm({ jobTitle, onClose }: JobApplyFormProps) {
                         required
                         type="url"
                         placeholder="https://..."
-                        className="w-full bg-white/5 border-b border-white/10 p-4 outline-none focus:border-[#bff549] transition-colors text-white"
+                        className="w-full bg-[#efefef]/5 border-b border-white/10 p-4 outline-none focus:border-[#bff549] transition-colors text-white"
                     />
                 </div>
                 <div className="space-y-2">
@@ -77,7 +77,7 @@ export default function JobApplyForm({ jobTitle, onClose }: JobApplyFormProps) {
                         required
                         type="url"
                         placeholder="https://..."
-                        className="w-full bg-white/5 border-b border-white/10 p-4 outline-none focus:border-[#bff549] transition-colors text-white"
+                        className="w-full bg-[#efefef]/5 border-b border-white/10 p-4 outline-none focus:border-[#bff549] transition-colors text-white"
                     />
                 </div>
             </div>
@@ -88,14 +88,14 @@ export default function JobApplyForm({ jobTitle, onClose }: JobApplyFormProps) {
                     required
                     rows={4}
                     placeholder="Tell us about your experience..."
-                    className="w-full bg-white/5 border-b border-white/10 p-4 outline-none focus:border-[#bff549] transition-colors text-white resize-none"
+                    className="w-full bg-[#efefef]/5 border-b border-white/10 p-4 outline-none focus:border-[#bff549] transition-colors text-white resize-none"
                 />
             </div>
 
             <button
                 disabled={status === 'sending'}
                 type="submit"
-                className="w-full bg-[#bff549] text-black h-16 flex items-center justify-center font-black uppercase tracking-[0.2em] text-xs -skew-x-12 hover:bg-white transition-all disabled:opacity-50"
+                className="w-full bg-[#bff549] text-black h-16 flex items-center justify-center font-black uppercase tracking-[0.2em] text-xs -skew-x-12 hover:bg-[#efefef] transition-all disabled:opacity-50"
             >
                 <div className="skew-x-12 flex items-center gap-2">
                     {status === 'sending' ? (
