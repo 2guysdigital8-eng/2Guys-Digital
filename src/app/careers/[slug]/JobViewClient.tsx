@@ -112,7 +112,7 @@ export default function JobViewClient({ job }: { job: any }) {
                     <div className="absolute top-0 right-0 size-32 bg-[#bff549]/5 -rotate-45 translate-x-16 -translate-y-16" />
                     <h2 className="text-4xl md:text-6xl font-black mb-4 tracking-tighter uppercase leading-none">Not Your <span className="italic text-[#bff549]">Fit?</span></h2>
                     <p className="text-slate-400 font-medium mb-16 text-lg">Send us your open application and we'll keep you in mind.</p>
-                    <ContactForm theme="dark" />
+                    <CareersForm showTitle={false} />
                 </div>
             </section>
         </div>

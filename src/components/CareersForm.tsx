@@ -5,11 +5,13 @@ import { useState } from "react";
 interface CareersFormProps {
     title?: string;
     description?: string;
+    showTitle?: boolean;
 }
 
 export default function CareersForm({
-    title = "General Application Apply Now",
-    description = "Share your story with us and let's build something extraordinary together."
+    title = "General Application",
+    description = "Share your story with us and let's build something extraordinary together.",
+    showTitle = true
 }: CareersFormProps) {
     const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
     const [resumeName, setResumeName] = useState<string>('');
@@ -36,13 +38,15 @@ export default function CareersForm({
     return (
         <div className="bg-neutral-900 p-12 lg:p-20 relative border border-white/5">
             <div className="absolute top-4 right-4 bg-[#bff549] text-black px-4 py-1 font-black text-xl italic skew-x-[-15deg]">
-                <span className="inline-block skew-x-[15deg]">C2 Digital</span>
+                <span className="inline-block skew-x-[15deg]">Apply Now</span>
             </div>
 
-            <div className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4 italic leading-none">{title}</h2>
-                <p className="text-slate-400 font-medium">{description}</p>
-            </div>
+            {showTitle && (
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4 italic leading-none">{title}</h2>
+                    <p className="text-slate-400 font-medium">{description}</p>
+                </div>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
