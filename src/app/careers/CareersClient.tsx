@@ -1,6 +1,5 @@
-"use client";
-
 import Link from "next/link";
+import { jobs } from "@/lib/constants";
 
 const benefits = [
     { title: "Remote-First", desc: "Work from anywhere in the world. We care about output, not hours spent at a desk.", icon: "public" },
@@ -9,12 +8,7 @@ const benefits = [
     { title: "Continuous Learning", desc: "Annual stipend for courses, conferences, and books.", icon: "menu_book" },
 ];
 
-const jobs = [
-    { title: "Senior AI Engineer", department: "Engineering", location: "Remote / Global", type: "Full-time" },
-    { title: "Full-Stack Developer (Next.js)", department: "Engineering", location: "Remote / Global", type: "Full-time" },
-    { title: "Lead UI/UX Designer", department: "Design", location: "Remote / Global", type: "Full-time" },
-    { title: "Technical Project Manager", department: "Operations", location: "Remote / US Timezones", type: "Full-time" },
-];
+// jobs moved to constants.ts
 
 export default function CareersClient() {
     return (
@@ -60,23 +54,38 @@ export default function CareersClient() {
                     </div>
 
                     <div className="space-y-4">
-                        {jobs.map((job) => (
-                            <Link href="/contact" key={job.title} className="group flex flex-col md:flex-row md:items-center justify-between p-8 border border-white/10 bg-black hover:bg-[#111] hover:border-[#bff549]/30 transition-all">
-                                <div>
-                                    <h4 className="text-2xl font-bold mb-2 group-hover:text-[#bff549] transition-colors">{job.title}</h4>
-                                    <div className="flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-widest text-slate-500">
-                                        <span>{job.department}</span>
-                                        <span className="w-1 h-1 bg-slate-700 rounded-full" />
-                                        <span>{job.location}</span>
-                                        <span className="w-1 h-1 bg-slate-700 rounded-full" />
-                                        <span>{job.type}</span>
+                        {jobs.length > 0 ? (
+                            jobs.map((job) => (
+                                <Link href={`/careers/${job.slug}`} key={job.title} className="group flex flex-col md:flex-row md:items-center justify-between p-8 border border-white/10 bg-neutral-900 hover:bg-neutral-800 hover:border-[#bff549]/30 transition-all">
+                                    <div>
+                                        <h4 className="text-2xl font-bold mb-2 group-hover:text-[#bff549] transition-colors">{job.title}</h4>
+                                        <div className="flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-widest text-slate-500">
+                                            <span>{job.department}</span>
+                                            <span className="w-1 h-1 bg-slate-700 rounded-full" />
+                                            <span>{job.location}</span>
+                                            <span className="w-1 h-1 bg-slate-700 rounded-full" />
+                                            <span>{job.type}</span>
+                                        </div>
                                     </div>
+                                    <div className="mt-6 md:mt-0 flex items-center justify-center size-12 border border-white/10 group-hover:border-[#bff549] bg-white/5 group-hover:bg-[#bff549]/10 transition-colors">
+                                        <span className="material-symbols-outlined text-[#bff549] -rotate-45 group-hover:rotate-0 transition-transform">arrow_forward</span>
+                                    </div>
+                                </Link>
+                            ))
+                        ) : (
+                            <div className="py-20 px-12 border border-dashed border-white/10 bg-neutral-900/50 text-center flex flex-col items-center">
+                                <div className="size-20 bg-neutral-800 rounded-full flex items-center justify-center mb-8">
+                                    <span className="material-symbols-outlined text-4xl text-slate-600">work_off</span>
                                 </div>
-                                <div className="mt-6 md:mt-0 flex items-center justify-center size-12 border border-white/10 group-hover:border-[#bff549] bg-white/5 group-hover:bg-[#bff549]/10 transition-colors">
-                                    <span className="material-symbols-outlined text-[#bff549] -rotate-45 group-hover:rotate-0 transition-transform">arrow_forward</span>
+                                <h4 className="text-2xl font-bold mb-4 uppercase tracking-tighter">No open roles currently</h4>
+                                <p className="text-slate-500 max-w-sm mx-auto mb-12">We are currently at capacity. Follow us or send a general application below to stay on our radar.</p>
+                                <div className="flex gap-4">
+                                    <div className="h-px w-12 bg-white/10 mt-2" />
+                                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#bff549]">Elite Talent Only</span>
+                                    <div className="h-px w-12 bg-white/10 mt-2" />
                                 </div>
-                            </Link>
-                        ))}
+                            </div>
+                        )}
                     </div>
                 </div>
             </section>

@@ -73,23 +73,61 @@ export default function AboutClient() {
                 </div>
             </section>
 
-            {/* Core Values */}
-            <section className="py-32 px-6 md:px-12 bg-black">
+            {/* Trust & Recognition */}
+            <section className="py-32 px-6 md:px-12 bg-neutral-900 border-y border-white/5">
                 <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-20">
-                        <h2 className="text-xs font-bold uppercase tracking-[0.4em] mb-4 text-slate-500">How We Operate</h2>
-                        <h3 className="text-4xl md:text-6xl font-black tracking-tighter uppercase">Our Core <span className="italic text-[#bff549]">Values</span></h3>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                        {values.map((v, i) => (
-                            <div key={v.title} className="p-10 border border-white/10 bg-[#0a0a0a] relative overflow-hidden group">
-                                <div className="absolute -top-4 -right-4 text-8xl font-black text-white/5 group-hover:text-[#bff549]/10 transition-colors select-none">
-                                    0{i + 1}
+                    <div className="grid md:grid-cols-2 gap-20 items-center">
+                        <div>
+                            <h2 className="text-xs font-bold uppercase tracking-[0.4em] mb-8 text-[#bff549]">Trust & Scale</h2>
+                            <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-8">
+                                Why Industry Leaders <br /><span className="italic text-slate-400">Trust Us.</span>
+                            </h3>
+                            <p className="text-slate-400 text-lg leading-relaxed mb-12">
+                                We operate at the intersection of aesthetic excellence and engineering rigor. Our systems power billions in transactions and serve millions of users daily.
+                            </p>
+                            <div className="grid grid-cols-2 gap-8">
+                                <div>
+                                    <div className="text-4xl font-black mb-1">99.99%</div>
+                                    <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Uptime Reliability</div>
                                 </div>
-                                <h4 className="text-2xl font-bold mb-4 relative z-10">{v.title}</h4>
-                                <p className="text-slate-400 leading-relaxed relative z-10">{v.desc}</p>
+                                <div>
+                                    <div className="text-4xl font-black mb-1">&lt;100ms</div>
+                                    <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Average Latency</div>
+                                </div>
                             </div>
-                        ))}
+                        </div>
+                        <div className="bg-black/50 p-12 lg:p-20 border border-white/5 relative overflow-hidden">
+                            <div className="absolute top-0 left-0 size-24 border-t-2 border-l-2 border-[#bff549]/20" />
+                            <div className="space-y-12">
+                                <div className="flex items-center gap-6 group">
+                                    <div className="size-12 bg-neutral-800 rounded-full flex items-center justify-center group-hover:bg-[#bff549]/10 transition-colors">
+                                        <span className="material-symbols-outlined text-[#bff549]/50 group-hover:text-[#bff549]">workspace_premium</span>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold uppercase tracking-widest text-sm">Verified Shopify Plus Partners</h4>
+                                        <p className="text-xs text-slate-500 mt-1">Certified e-commerce excellence at scale.</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-6 group">
+                                    <div className="size-12 bg-neutral-800 rounded-full flex items-center justify-center group-hover:bg-[#bff549]/10 transition-colors">
+                                        <span className="material-symbols-outlined text-[#bff549]/50 group-hover:text-[#bff549]">cloud_done</span>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold uppercase tracking-widest text-sm">AWS Advanced Consulting</h4>
+                                        <p className="text-xs text-slate-500 mt-1">Enterprise cloud architecture & security.</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-6 group">
+                                    <div className="size-12 bg-neutral-800 rounded-full flex items-center justify-center group-hover:bg-[#bff549]/10 transition-colors">
+                                        <span className="material-symbols-outlined text-[#bff549]/50 group-hover:text-[#bff549]">bolt</span>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold uppercase tracking-widest text-sm">Vercel Strategic Partner</h4>
+                                        <p className="text-xs text-slate-500 mt-1">Leading the edge-first development movement.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

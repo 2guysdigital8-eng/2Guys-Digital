@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
-import DragCarousel from "@/components/DragCarousel";
 import ScrollingServices from "@/components/ScrollingServices";
+import { caseStudies } from "@/lib/constants";
 import BentoStats from "@/components/BentoStats";
+import DragCarousel from "@/components/DragCarousel";
 
 export const metadata: Metadata = {
   title: "2Guys Digital | Enterprise-Grade AI Development Agency",
@@ -111,6 +112,45 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="py-32 px-6 md:px-12 bg-neutral-900 border-y border-white/5">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-5 gap-20 items-center">
+            <div className="md:col-span-2">
+              <h2 className="text-sm font-bold uppercase tracking-[0.4em] mb-8 text-[#bff549]">Trust & Execution</h2>
+              <h3 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-[0.9] mb-8">
+                Built for <br /><span className="italic text-slate-400">Scale.</span>
+              </h3>
+              <p className="text-slate-400 text-lg leading-relaxed mb-12">
+                We partner with forward-thinking enterprises to deliver sub-100ms experiences and AI-native architectures that redefine digital possibilities.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4 group">
+                  <div className="size-10 border border-white/10 flex items-center justify-center group-hover:border-[#bff549] transition-colors">
+                    <span className="material-symbols-outlined text-[#bff549]/50 group-hover:text-[#bff549]">verified</span>
+                  </div>
+                  <span className="text-sm font-bold uppercase tracking-widest text-slate-300">Certified AI Solution Partners</span>
+                </div>
+                <div className="flex items-center gap-4 group">
+                  <div className="size-10 border border-white/10 flex items-center justify-center group-hover:border-[#bff549] transition-colors">
+                    <span className="material-symbols-outlined text-[#bff549]/50 group-hover:text-[#bff549]">security</span>
+                  </div>
+                  <span className="text-sm font-bold uppercase tracking-widest text-slate-300">Enterprise Security Compliant</span>
+                </div>
+              </div>
+            </div>
+            <div className="md:col-span-3">
+              <div className="flex flex-wrap gap-8 items-center justify-center opacity-30 grayscale contrast-125">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnE4yO8-vXN7tFv8P6P_EaUa9K07e0-997e-88-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8" alt="Client 1" className="h-8 md:h-12 w-auto" />
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnE4yO8-vXN7tFv8P6P_EaUa9K07e0-997e-88-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8" alt="Client 2" className="h-8 md:h-12 w-auto" />
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnE4yO8-vXN7tFv8P6P_EaUa9K07e0-997e-88-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8" alt="Client 3" className="h-8 md:h-12 w-auto" />
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnE4yO8-vXN7tFv8P6P_EaUa9K07e0-997e-88-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8" alt="Client 4" className="h-8 md:h-12 w-auto" />
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnE4yO8-vXN7tFv8P6P_EaUa9K07e0-997e-88-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8-8" alt="Client 5" className="h-8 md:h-12 w-auto" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Scrolling Services Section */}
       <ScrollingServices />
 
@@ -193,31 +233,35 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4">
-          {workItems.map((item) => (
-            <Link
-              key={item.title}
-              href="/portfolio"
-              className="aspect-square flex flex-col items-center justify-center p-8 grayscale hover:grayscale-0 transition-all cursor-pointer group relative overflow-hidden"
-            >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10">
+          {caseStudies.slice(0, 2).map((project) => (
+            <Link href={`/portfolio/${project.slug}`} key={project.id} className="group relative aspect-[4/5] md:aspect-[16/10] overflow-hidden bg-neutral-900 transition-all">
               <img
-                src={item.img}
-                alt={item.title}
-                className="absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-40 transition-opacity duration-700"
+                src={project.img}
+                alt={project.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-black/60 group-hover:bg-[#bff549]/10 transition-colors" />
-
-              <div className="relative z-10 text-center">
-                <span className="text-[10px] font-bold text-[#bff549] uppercase tracking-[0.3em] block mb-2 opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
-                  {item.tag}
-                </span>
-                <span className="font-black text-2xl tracking-tighter text-white leading-tight block transform transition-transform group-hover:scale-110">
-                  {item.title}
-                </span>
+              {/* Hover Overlay */}
+              <div className="absolute inset-0 bg-black/80 flex flex-col justify-end p-8 md:p-12 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                <div className="text-[10px] items-center flex gap-3 font-black uppercase tracking-[0.3em] mb-4 text-[#bff549]">
+                  <span className="h-px w-8 bg-[#bff549]/30" />
+                  {project.industry}
+                </div>
+                <h4 className="text-3xl md:text-5xl font-black uppercase tracking-tighter leading-none mb-6">
+                  {project.title.split(' ')[0]} <br />
+                  <span className="italic text-slate-400">{project.title.split(' ').slice(1).join(' ')}</span>
+                </h4>
+                <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest group-hover:opacity-100 opacity-0 transition-opacity delay-300">
+                  <span>View Case Study</span>
+                  <span className="material-symbols-outlined text-[#bff549]">arrow_forward</span>
+                </div>
               </div>
 
-              {/* Decorative side accent */}
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-0 bg-[#bff549] group-hover:h-12 transition-all duration-500" />
+              {/* Static Metric Badge */}
+              <div className="absolute top-8 right-8 size-20 md:size-24 bg-[#bff549] rounded-full flex flex-col items-center justify-center -rotate-12 group-hover:rotate-0 transition-transform duration-500 z-10">
+                <span className="text-black font-black text-xl leading-none">{project.metric}</span>
+                <span className="text-black/60 text-[8px] font-bold uppercase tracking-tighter mt-1">Growth</span>
+              </div>
             </Link>
           ))}
         </div>
@@ -250,6 +294,30 @@ export default function HomePage() {
               <div key={item.label}>
                 <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2">{item.label}</p>
                 <p className="font-bold">{item.value}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-32 px-6 md:px-12 bg-black">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-20">
+            <h2 className="text-sm font-bold uppercase tracking-[0.4em] mb-4 text-[#bff549]">Our Collective Mindset</h2>
+            <h3 className="text-4xl md:text-6xl font-black tracking-tighter uppercase leading-[0.9]">
+              Beyond <br /><span className="italic text-slate-400">Engineering.</span>
+            </h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {[
+              { title: "AI-Native", desc: "Every line of code is augmented by AI to ensure extreme efficiency and future-proof architectures." },
+              { title: "User Obsessed", desc: "We build for humans, ensuring every interaction is meaningful, intuitive, and frictionless." },
+              { title: "Performance First", desc: "Speed isn't just a metric; it's our core philosophy. We optimize for sub-100ms response times." },
+            ].map((v, i) => (
+              <div key={v.title} className="p-10 border border-white/10 bg-neutral-900 group hover:border-[#bff549]/50 transition-colors">
+                <span className="text-4xl font-black text-white/10 mb-8 block group-hover:text-[#bff549]/20 transition-colors">0{i + 1}</span>
+                <h4 className="text-2xl font-bold mb-4">{v.title}</h4>
+                <p className="text-slate-400 leading-relaxed">{v.desc}</p>
               </div>
             ))}
           </div>

@@ -36,3 +36,72 @@ export const caseStudies = [
         link: "https://vaultmobile.example.com",
     },
 ];
+
+export const jobs = [
+    {
+        slug: "senior-ai-engineer",
+        title: "Senior AI Engineer",
+        department: "Engineering",
+        location: "Remote / Global",
+        type: "Full-time",
+        fullDescription: `
+            We are looking for a Senior AI Engineer to lead the development of our predictive modeling engines and LLM-integrated systems.
+            
+            **What you'll do:**
+            - Architect and deploy scalable AI solutions for enterprise clients.
+            - Optimize LLM prompt chains and retrieval-augmented generation (RAG) workflows.
+            - Collaborate with product and design teams to build intuitive AI-native interfaces.
+            - Mentor junior engineers and contribute to our internal AI research.
+            
+            **Requirements:**
+            - 5+ years of experience in software engineering.
+            - Deep expertise in Python, PyTorch/TensorFlow, and LangChain.
+            - Proven track record of deploying production AI systems.
+            - Strong communication skills and a remote-first mindset.
+        `
+    },
+    {
+        slug: "full-stack-developer",
+        title: "Full-Stack Developer (Next.js)",
+        department: "Engineering",
+        location: "Remote / Global",
+        type: "Full-time",
+        fullDescription: `
+            Join us as a Full-Stack Developer to build high-performance, aesthetically precise digital products.
+            
+            **What you'll do:**
+            - Build responsive frontend architectures using Next.js 15 and Tailwind CSS.
+            - Develop robust backend APIs and serverless functions.
+            - Implement complex animations and micro-interactions.
+            - Ensure sub-100ms latency across all digital experiences.
+            
+            **Requirements:**
+            - 3+ years of experience with React/Next.js and TypeScript.
+            - Strong eye for design and detail.
+            - Experience with Framer Motion and modern CSS techniques.
+            - Ability to work independently in a fast-paced environment.
+        `
+    },
+    {
+        slug: "shopify-project-manager",
+        title: "Shopify Project Manager",
+        department: "Operations",
+        location: "Remote / US Timezones",
+        type: "Full-time",
+        fullDescription: `
+            We're seeking a Shopify Project Manager to oversee complex e-commerce transformations for our elite client base.
+            
+            **What you'll do:**
+            - Lead end-to-end Shopify migrations and custom builds.
+            - Coordinate between developers, designers, and high-profile stakeholders.
+            - Manage timelines, resources, and project scopes with extreme precision.
+            - Ensure all Shopify projects meet our enterprise-grade quality standards.
+            
+            **Requirements:**
+            - 4+ years of project management experience, specifically with Shopify Plus.
+            - Deep understanding of the Shopify ecosystem and liquid.
+            - Exceptional communication and organization skills.
+            - Experience managing remote, cross-functional teams.
+        `
+    }
+];

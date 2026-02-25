@@ -5,11 +5,11 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navLinks = [
-    { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Services", href: "/services" },
-    { label: "Work", href: "/portfolio" },
+    { label: "Our Work", href: "/portfolio" },
     { label: "Process", href: "/process" },
+    { label: "Careers", href: "/careers" },
     { label: "Contact", href: "/contact" },
 ];
 
@@ -55,7 +55,7 @@ export default function Navbar() {
                     <div className="flex items-center gap-6">
                         <Link
                             href="/contact"
-                            className="hidden md:block bg-[#bff549] text-black px-6 py-2.5 text-xs font-bold uppercase tracking-widest hover:brightness-110 transition-all -skew-x-12"
+                            className="hidden md:flex bg-[#bff549] text-black px-10 h-14 items-center justify-center text-xs font-black uppercase tracking-[0.2em] hover:bg-white transition-all -skew-x-12"
                         >
                             <span className="inline-block skew-x-12">Get Free Website</span>
                         </Link>
