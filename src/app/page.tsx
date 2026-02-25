@@ -122,10 +122,17 @@ export default function HomePage() {
           <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-widest mb-16 text-white italic">
             Featured <span className="text-[#bff549]">Clients</span>
           </h2>
-          <div className="flex flex-wrap justify-center items-center gap-y-12 gap-x-8 opacity-30 grayscale contrast-125">
-            {["BILLBOARD", "KYLIE", "FORD", "DHL", "NAPLES", "KERWELL", "NORANI", "ROUTE", "LUNAR", "BLUE STAR"].map((name) => (
-              <span key={name} className="text-2xl font-black tracking-tighter">{name}</span>
-            ))}
+          <div className="flex flex-col gap-y-12">
+            <div className="flex flex-wrap justify-center items-center gap-x-12 opacity-30 grayscale contrast-125">
+              {["BILLBOARD", "KYLIE", "FORD", "DHL", "NAPLES", "SONY", "ADIDAS"].map((name) => (
+                <span key={name} className="text-2xl font-black tracking-tighter">{name}</span>
+              ))}
+            </div>
+            <div className="flex flex-wrap justify-center items-center gap-x-12 opacity-30 grayscale contrast-125">
+              {["KERWELL", "NORANI", "ROUTE", "LUNAR", "BLUE STAR", "VISA", "BMW"].map((name) => (
+                <span key={name} className="text-2xl font-black tracking-tighter">{name}</span>
+              ))}
+            </div>
           </div>
         </div>
       </section>
