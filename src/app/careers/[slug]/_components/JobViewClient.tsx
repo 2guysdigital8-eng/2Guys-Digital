@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import CareersForm from "@/components/CareersForm";
-import ContactForm from "@/components/ContactForm";
+import CareersForm from "@/components/forms/CareersForm";
+import ContactForm from "@/components/forms/ContactForm";
 
 export default function JobViewClient({ job }: { job: any }) {
     const [showForm, setShowForm] = useState(false);

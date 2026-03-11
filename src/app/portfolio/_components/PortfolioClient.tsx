@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/forms/ContactForm";
 import { caseStudies } from "@/lib/constants";
 
 export default function PortfolioPage() {

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/forms/ContactForm";
 
 export default function ProjectViewClient({ project }: { project: any }) {
     return (

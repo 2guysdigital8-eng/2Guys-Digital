@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ProcessClient from "./ProcessClient";
+import ProcessClient from "./_components/ProcessClient";
 
 export const metadata: Metadata = {
     title: "Our Process | 2Guys Digital",

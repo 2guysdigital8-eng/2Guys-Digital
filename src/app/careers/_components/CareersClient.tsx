@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { jobs } from "@/lib/constants";
-import CareersForm from "@/components/CareersForm";
+import CareersForm from "@/components/forms/CareersForm";
 
 export default function CareersClient() {
     return (

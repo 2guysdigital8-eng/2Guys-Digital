@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { jobs } from "@/lib/constants";
-import JobViewClient from "./JobViewClient";
+import JobViewClient from "./_components/JobViewClient";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

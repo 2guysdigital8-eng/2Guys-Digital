@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import ContactForm from "@/components/ContactForm";
-import ScrollingServices from "@/components/ScrollingServices";
+import ContactForm from "@/components/forms/ContactForm";
+import ScrollingServices from "@/components/ui/ScrollingServices";
 import { caseStudies } from "@/lib/constants";
-import BentoStats from "@/components/BentoStats";
-import DragCarousel from "@/components/DragCarousel";
+import BentoStats from "@/components/ui/BentoStats";
+import DragCarousel from "@/components/ui/DragCarousel";
 
 export const metadata: Metadata = {
   title: "2Guys Digital | Enterprise-Grade AI Development Agency",

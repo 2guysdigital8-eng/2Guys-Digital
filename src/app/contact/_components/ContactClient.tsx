@@ -1,6 +1,6 @@
 "use client";
 
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/forms/ContactForm";
 
 const protocol = [
     { num: "01", title: "Technical Audit", desc: "A rigorous 30-minute analysis of your current infrastructure and architectural debt." },

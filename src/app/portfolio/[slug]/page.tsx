@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { caseStudies } from "@/lib/constants";
-import ProjectViewClient from "./ProjectViewClient";
+import ProjectViewClient from "./_components/ProjectViewClient";
 import { notFound } from "next/navigation";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

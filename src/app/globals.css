@@ -37,7 +37,7 @@ body {
 /* Custom Cursor Hiding */
 @media (hover: hover) and (pointer: fine) {
   * {
-    cursor: none !important;
+    cursor: default important;
   }
 }
 

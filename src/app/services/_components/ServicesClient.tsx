@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/forms/ContactForm";
 import { useState, useRef, useEffect } from "react";
 
 const services = [

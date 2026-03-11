@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/forms/ContactForm";
 
 const teamMembers = [
     { name: "Alex Mercer", role: "Co-Founder & CEO", initials: "AM" },

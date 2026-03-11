@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/forms/ContactForm";
 
 const phases = [
     { num: "01", icon: "search", title: "Discovery", desc: "Deep market intelligence and technical feasibility mapping to ensure zero-waste development cycles.", ai: "Automated competitive landscape analysis & requirements parsing.", highlight: false },
