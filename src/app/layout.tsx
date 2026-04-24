@@ -39,7 +39,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
       </head>
       <body className={`${spaceGrotesk.variable} font-[family-name:var(--font-space-grotesk)] text-slate-100 antialiased overflow-x-hidden bg-black`}>
-        <CustomCursor />
+        {/* <CustomCursor /> */}
         <Navbar />
         <main>{children}</main>
         <Footer />
